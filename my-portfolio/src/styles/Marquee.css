@@ -1,0 +1,87 @@
+:root {
+    --duration: 40s; /* Duration of the animation */
+    --gap: 1rem; /* Gap between items */
+  }
+  
+  .marquee-container {
+    display: flex;
+    overflow: hidden;
+    padding: 0.5rem; /* Equivalent to p-2 */
+    gap: var(--gap);
+  }
+  
+  .marquee-container.horizontal {
+    flex-direction: row;
+  }
+  
+  .marquee-container.vertical {
+    flex-direction: column;
+  }
+  
+  .marquee-item {
+    display: flex;
+    justify-content: center;
+    flex-shrink: 0;
+    gap: var(--gap);
+    animation: marquee var(--duration) linear infinite;
+  }
+  
+  .marquee-item.horizontal {
+    animation: marquee var(--duration) linear infinite;
+  }
+  
+  .marquee-item.vertical {
+    animation: marquee-vertical var(--duration) linear infinite;
+  }
+  
+  .pause-on-hover:hover {
+    animation-play-state: paused;
+  }
+  
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  
+  /* Review Card */
+  .review-card {
+    width: 16rem;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.01);
+    padding: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .review-card:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .review-card img {
+    border-radius: 50%;
+  }
+  
+  .dark .review-card {
+    border-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .dark .review-card:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
