@@ -1,0 +1,72 @@
+
+/* Full page container */
+.particle-deconstruct-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #000;
+  }
+  
+  /* The main element box */
+  .particle-deconstruct-element {
+    width: 300px;
+    height: 200px;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    /* border: 2px solid #0ff; */
+    border-radius: 15px;
+    /* box-shadow: 0 0 15px #0ff; */
+  }
+  
+  /* Text inside the element */
+  .particle-deconstruct-element h2 {
+    color: #0ff;
+    font-size: 2rem;
+    font-family: "Arial", sans-serif;
+    position: relative;
+    z-index: 2;
+    transition: all 0.5s ease;
+  }
+  
+  /* Pseudo elements for particles */
+  .particle-deconstruct-element::before,
+  .particle-deconstruct-element::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-radial-gradient(
+      circle at center,
+      #0ff 1px,
+      transparent 2px,
+      transparent 50px
+    );
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
+  
+  /* Hover effect - explode and scale text */
+  .particle-deconstruct-element:hover h2 {
+    transform: scale(1.5) rotate(360deg);
+    opacity: 0;
+  }
+  
+  /* Hover effect - expanding particles */
+  .particle-deconstruct-element:hover::before {
+    transform: scale(2) rotate(45deg);
+    opacity: 0.3;
+  }
+  
+  /* Hover effect - reverse particles */
+  .particle-deconstruct-element:hover::after {
+    transform: scale(2) rotate(-45deg);
+    opacity: 0.3;
+  }
+  

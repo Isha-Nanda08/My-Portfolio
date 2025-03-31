@@ -1,0 +1,117 @@
+@keyframes animate-columns {
+    0% {
+      grid-template-columns: 17vmin 8vmin 5vmin 7vmin 10vmin 15vmin 15vmin;
+      grid-template-rows: 4vmin 9vmin 15vmin 7vmin 13vmin 8vmin 5vmin;
+    }
+    25% {
+      grid-template-columns: 10vmin 8vmin 15vmin 5vmin 7vmin 15vmin 17vmin;
+      grid-template-rows: 15vmin 4vmin 7vmin 8vmin 5vmin 13vmin 9vmin;
+    }
+    50% {
+      grid-template-columns: 15vmin 10vmin 17vmin 5vmin 7vmin 15vmin 8vmin;
+      grid-template-rows: 4vmin 9vmin 5vmin 13vmin 7vmin 8vmin 15vmin;
+    }
+    75% {
+      grid-template-columns: 8vmin 5vmin 7vmin 15vmin 17vmin 15vmin 10vmin;
+      grid-template-rows: 13vmin 4vmin 15vmin 9vmin 5vmin 7vmin 8vmin;
+    }
+    100% {
+      grid-template-columns: 10vmin 8vmin 5vmin 7vmin 15vmin 15vmin 17vmin;
+      grid-template-rows: 4vmin 15vmin 9vmin 7vmin 8vmin 5vmin 13vmin;
+    }
+  }
+  
+  .grid {
+    display: grid;
+    gap: 2vmin;
+    padding: 2vmin;
+    grid-template-columns: 20vmin 12vmin 8vmin 10vmin 13vmin 18vmin 18vmin;
+    grid-template-rows: 4vmin 9vmin 15vmin 7vmin 13vmin 8vmin 5vmin;
+    align-items: stretch;
+    justify-items: stretch;
+    background: #000;
+    animation: animate-columns 30s ease-in-out infinite alternate;
+    width: 100%;
+  }
+  
+  .cell {
+    width: 100%;
+    background: rgb(0 0 0);
+  }
+  
+  :root {
+    --light1: #e5eeeb;
+    --light2: #8723ca;
+    --light3: #fcfde7;
+    --light4: #ad1eba;
+    --light5: #e3ded9;
+    --yellow1: #68c6f2;
+    --yellow2: #b26bed;
+    --red1: #d62d24;
+    --red2: #d73630;
+    --dark1: #130409;
+    --dark2: #0b0205;
+    --dark3: #d829cf;
+    --blue: #241785;
+  }
+  
+  /* Base color cycling */
+  .cell:nth-child(1n) {
+    background: var(--light1);
+  }
+  .cell:nth-child(2n) {
+    background: var(--light2);
+  }
+  .cell:nth-child(3n) {
+    background: var(--yellow1);
+  }
+  .cell:nth-child(4n) {
+    background: var(--light5);
+  }
+  
+  /* Specific styling */
+  .cell-1 {
+    background: var(--red1);
+  }
+  .cell-2 {
+    grid-column: span 2;
+    background: var(--light3);
+  }
+  .cell-5 {
+    grid-column: span 2;
+    grid-row: span 3;
+    background: var(--yellow1);
+  }
+  .cell-7 {
+    grid-column: span 3;
+    grid-row: span 2;
+    background: var(--blue);
+  }
+  .cell-8 {
+    background: var(--dark3);
+  }
+  .cell-9 {
+    grid-row: span 2;
+    background: var(--light5);
+  }
+  .cell-10 {
+    grid-column: span 3;
+    grid-row: span 4;
+    background: var(--light1);
+  }
+  .cell-12,
+  .cell-17 {
+    grid-row: span 2;
+  }
+  .cell-14,
+  .cell-6 {
+    grid-row: span 3;
+    background: var(--light3);
+  }
+  .cell-16 {
+    background: var(--red2);
+  }
+  .cell-18 {
+    background: var(--dark1);
+  }
+  

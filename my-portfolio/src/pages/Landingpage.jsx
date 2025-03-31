@@ -6,6 +6,13 @@ import useLocoScroll from "../Hooks/LocomotiveScroll";
 import Loader from "../Loader/Loader";
 import Grid from "animated-grid-lines";
 import CustomCursor from "../components/CustomCursor"; // Import CustomCursor
+// import FlickeringGrid from "../components/FlickeringGrid";
+import IconCloud from "../components/IconCloud";
+import MondrianGrid from "../components/MondianGrid";
+import Explode from "../components/Explode";
+import SocialIcons from "../components/socialIcons";
+import HexagonGrid from "../components/Hexagon";
+import Navbar from "../components/Navbar";
 
 const Landingpage = () => {
   // State to manage loading status
@@ -31,15 +38,32 @@ const Landingpage = () => {
     <div id="main-container" data-scroll-container className="relative cursor-none" 
         style={{
             marginTop:'0',
-            backgroundColor:'#000'
+            backgroundColor:'#000',
+            // width:"100vh"
+            overflow:'hidden'
         }}>
       {/* Custom Cursor */}
+      <Navbar/>
       <CustomCursor />
 
       {/* Vortex Background */}
-      <VortexBackground  />
+      {/* <VortexBackground  /> */}
+      {/* <FlickeringGrid/> */}
+      <div
+        style={{
+          // position: "absolute",
+          width:"200vh",
+
+        }}
+      >
+
+        <MondrianGrid/>
+      </div>
+      <IconCloud/>
+      <Explode/>
 
       {/* Animated Grid */}
+
       <div
         style={{
           width: "100%",
@@ -51,10 +75,13 @@ const Landingpage = () => {
         }}
       >
         <Grid />
+        
       </div>
 
       {/* Contact Section */}
       {/* <Contact /> */}
+      <HexagonGrid/>
+      <SocialIcons/>
     </div>
   );
 };
