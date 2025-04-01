@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const RollingNavbar = () => {
   const [animationStarted, setAnimationStarted] = useState(false);
-  const navItems = [ 'About','Projects',  'skills','Contact'];
+  const navItems = [ 'Home','About','Projects',  'skills','Contact'];
   
   useEffect(() => {
     // Start animation after component mounts

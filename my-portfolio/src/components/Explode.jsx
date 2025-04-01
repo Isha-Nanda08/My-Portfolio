@@ -31,6 +31,7 @@ const Explode = () => {
 
   return (
     <div className="page-wrapper">
+      
       <div className="particle-deconstruct-container">
         <div className="particle-deconstruct-element">
           <h2>EXPLODE</h2>

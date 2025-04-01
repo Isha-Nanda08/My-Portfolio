@@ -13,6 +13,7 @@ import Explode from "../components/Explode";
 import SocialIcons from "../components/socialIcons";
 import HexagonGrid from "../components/Hexagon";
 import RollingNavbar from "../components/Navbar";
+import SkillsGrid from "../components/skills";
 
 
 const Landingpage = () => {
@@ -32,7 +33,7 @@ const Landingpage = () => {
 
   // Show loader while loading, then switch to content
   if (isLoading) {
-    return <Loader />;
+    // return <Loader />;
   }
 
   return (
@@ -41,7 +42,12 @@ const Landingpage = () => {
             marginTop:'0',
             backgroundColor:'#000',
             // width:"100vh"
-            overflow:'hidden'
+            overflow:'hidden',
+            display:'flex',
+            flexDirection:'column',
+            justifyContent:'left',
+            alignItems:'left',
+
         }}>
       {/* Custom Cursor */}
       <RollingNavbar/>
@@ -60,10 +66,15 @@ const Landingpage = () => {
 
         <MondrianGrid/>
       </div>
-  
-      <Explode/>
-
-      {/* Animated Grid */}
+      <div style={{
+        // display:'flex',
+        // position:'relative',
+        // top:'50%'
+        
+      }}>
+        <Explode/>
+        {/* // <SkillsGrid/> */}
+      </div>
 
       <div
         style={{
@@ -80,9 +91,8 @@ const Landingpage = () => {
       </div>
 
       {/* Contact Section */}
-      {/* <Contact /> */}
       <HexagonGrid/>
-      <SocialIcons/>
+      <Contact />
     </div>
   );
 };

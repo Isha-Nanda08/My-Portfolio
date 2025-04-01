@@ -1,5 +1,5 @@
 .contact-section {
-    height: 100vh;
+    height: 30vh;
     position: relative;
     display: flex;
     align-items: center;
@@ -131,3 +131,180 @@
     z-index: 10;
   }
   
+  /* Base styles for the contact section */
+.contact-section {
+  background-color: #000;
+  color: #fff;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Text styles */
+.text {
+  font-family: sans-serif;
+}
+
+.font-white {
+  color: #fff;
+}
+
+/* Links styling */
+.links-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.links {
+  margin-bottom: 2rem;
+}
+
+.link-title {
+  color: #777;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.link {
+  margin-bottom: 0.75rem;
+}
+
+.link a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.25rem;
+  transition: color 0.3s ease;
+}
+
+.link a:hover {
+  color: #ccc;
+}
+
+/* Underline animation */
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 1px;
+  bottom: -3px;
+  left: 0;
+  background-color: #fff;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Image container */
+.contact-img-container {
+  width: 320px;
+  height: 320px;
+  position: relative;
+  margin: 4rem auto;
+}
+
+.contact-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.contact-img.is-reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* Mid container for image and links */
+.mid-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* IMPORTANT - Marquee text styling */
+.scroll-container {
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  min-height: 120px;
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.scroll-left, .scroll-right {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding: 20px 0;
+  animation-duration: 20s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  min-width: 100%;
+}
+
+.scroll-left {
+  animation-name: scrollLeft;
+}
+
+.scroll-right {
+  animation-name: scrollRight;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Footer styling */
+.designer-credit {
+  padding: 2rem;
+  color: #666;
+  text-align: center;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .links-container {
+    flex-direction: column;
+  }
+  
+  .scroll-left, .scroll-right {
+    font-size: 3rem;
+  }
+  
+  .contact-img-container {
+    width: 250px;
+    height: 250px;
+  }
+}

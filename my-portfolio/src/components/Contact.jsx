@@ -1,119 +1,169 @@
-import "../styles/Contact.css";
-import contactImage from "../images/contact.webp";
-import React, { useEffect, useState } from "react";
-import cn from "classnames";
+import React from 'react';
+import { useState, useEffect } from 'react';
+import SocialIcons from './socialIcons';
 
-export default function Contact() {
-  const [reveal, setReveal] = useState(false);
-
+const RollingTextContact = () => {
+  const [mounted, setMounted] = useState(false);
+  
   useEffect(() => {
-    // --------------------------------------------------------
-    // Follow mouse image
-    // https://armandocanals.com/posts/CSS-transform-rotating-a-3D-object-perspective-based-on-mouse-position.html
-
-    let constrain = 60;
-    let mouseOverContainer = document.querySelector(".contact-section");
-    let layer = document.querySelector(".contact-img");
-
-    function transforms(x, y, el) {
-      let box = el.getBoundingClientRect();
-      let calcX = -(y - box.y - box.height / 2) / constrain;
-      let calcY = (x - box.x - box.width / 2) / constrain;
-
-      return (
-        "perspective(100vw) " +
-        "   rotateX(" +
-        calcX +
-        "deg) " +
-        "   rotateY(" +
-        calcY +
-        "deg) "
-      );
-    }
-
-    function transformElement(el, xyEl) {
-      el.style.transform = transforms.apply(null, xyEl);
-    }
-
-    if (matchMedia("(pointer:fine)").matches) {
-      mouseOverContainer.onmousemove = function (e) {
-        let xy = [e.clientX, e.clientY];
-        let position = xy.concat([layer]);
-
-        window.requestAnimationFrame(function () {
-          transformElement(layer, position);
-        });
-      };
-    }
+    setMounted(true);
   }, []);
 
+  // Create marquee content with duplicated text for seamless looping
+  const createMarqueeContent = () => {
+    const phrases = [];
+    for (let i = 0; i < 10; i++) {
+      phrases.push("GET IN TOUCH ");
+    }
+    return phrases.join("");
+  };
+
+  const styles = `
+    .container {
+      background-color: #000;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    
+    .gallery-container {
+      width: 100%;
+      position: relative;
+    }
+    
+    .image-gallery {
+      width: 100%;
+      height: 400px;
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .image-container {
+      width: 320px;
+      height: 320px;
+      position: relative;
+    }
+    
+    .gallery-image {
+      object-fit: contain;
+      height: 100%;
+      width: auto;
+      margin: 0 auto;
+    }
+    
+    .scroll-container {
+      overflow: hidden;
+      margin: 32px 0;
+    }
+    
+    @keyframes scrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    @keyframes scrollRight {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+    
+    .scroll-left {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scrollLeft 15s linear infinite;
+      font-size: 80px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+    }
+    
+    .scroll-right {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scrollRight 15s linear infinite;
+      font-size: 80px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+    }
+    
+    .footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 40px;
+    }
+    
+    .footer-column {
+      margin-bottom: 32px;
+    }
+    
+    .footer-title {
+      color: #777;
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+    
+    .footer-link {
+      display: block;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    
+    .footer-link:hover {
+      color: #ccc;
+    }
+    
+    .designer-credit {
+      padding: 40px;
+      color: #666;
+    }
+    
+    @media (max-width: 768px) {
+      .footer {
+        flex-direction: column;
+      }
+      
+      .scroll-left, .scroll-right {
+        font-size: 60px;
+      }
+      
+      .image-gallery {
+        height: 300px;
+      }
+      
+      .image-container {
+        width: 250px;
+        height: 250px;
+      }
+    }
+  `;
+
   return (
-    <section id="contact" className="contact-section" data-scroll-section>
-      <div className="wrapper-rolling-text">
-        <div className="rolling-text font-white title title-contact">
-          <span>Get in touch · Get in touch ·&nbsp;</span>
-        </div>
-      </div>
+    <div className="container">
+      {mounted && <style>{styles}</style>}
+      <div className="gallery-container">
 
-      <div className="mid-container">
-        <div className="contact-img-container">
-          <img
-            src={contactImage}
-            alt="contact"
-            className={cn("contact-img", { "is-reveal": reveal })}
-            data-scroll
-            data-scroll-target=".contact-img-container"
-          />
-        </div>
-
-        <div className="links-container">
-          <div className="links">
-            <div className="link-title text">Socials</div>
-            <div className="link text font-white hover-underline-animation">
-              <a
-                href="https://www.behance.net/minhthanhnguyen3/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Behance
-              </a>
-            </div>
-            <div className="link text font-white hover-underline-animation">
-              <a
-                href="https://www.instagram.com/minhthanh7219/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Instagram
-              </a>
-            </div>
-            <div className="link text font-white hover-underline-animation">
-              <a
-                href="https://www.linkedin.com/in/ngmthanh/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                LinkedIn
-              </a>
-            </div>
+        <div className="scroll-container">
+          <div className="scroll-left">
+            {createMarqueeContent()}
           </div>
-
-          <div className="links">
-            <div className="link-title text">Contact</div>
-            <div className="link text font-white hover-underline-animation">
-              <a href="mailto:nmthanh99@gmail.com">nmthanh99@gmail.com</a>
-            </div>
-            <div className="link text font-white hover-underline-animation">
-              <a href="tel:+33621617481">+33 6 21 61 74 81</a>
-            </div>
-            <div className="link text font-white hover-underline-animation">
-              &#8205;
-            </div>
+        </div>
+        <div className="scroll-container">
+          <div className="scroll-right">
+            {createMarqueeContent()}
           </div>
         </div>
       </div>
-
-      <div className="text designed-by font-white">Designed by Minh Thanh.</div>
-    </section>
+      <SocialIcons/>
+      
+    </div>
   );
-}
+};
+
+export default RollingTextContact;

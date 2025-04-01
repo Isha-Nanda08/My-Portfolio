@@ -1,16 +1,17 @@
 /* Full page wrapper */
 .page-wrapper {
   position: relative;
-  width: 100%;
+  /* width: 100%; */
   height: 100vh;
   background: #000;
   overflow: hidden;
+  left: 0%;
 }
 
 /* Full page container */ 
 .particle-deconstruct-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   height: 100vh;
   width: 100%;

@@ -1,0 +1,83 @@
+/* Main container styles */
+.landing-page {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* VortexBackground should be positioned behind other elements */
+  .vortex-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  /* Main content container */
+  main {
+    position: relative;
+    z-index: 1;
+    padding: 0 20px;
+  }
+  
+  /* Style for the explode section specifically */
+  .explode-section {
+    position: relative;
+    width: 100%;
+    min-height: 80vh; /* Give it significant height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Ensure it's above the background */
+  }
+  
+  /* Make sure the Explode component itself has proper dimensions */
+  .explode-component {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  /* Navbar styling */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* Keep navbar above other elements */
+    padding: 15px 20px;
+  }
+  
+  /* Contact section */
+  .contact-section {
+    position: relative;
+    z-index: 3;
+    padding: 50px 0;
+  }
+  
+  /* Social icons */
+  .social-icons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 5;
+  }
+  
+  /* Custom cursor */
+  .custom-cursor {
+    pointer-events: none;
+    position: fixed;
+    z-index: 9999; /* Make sure cursor is always on top */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .explode-section {
+      min-height: 50vh; /* Smaller height on mobile */
+    }
+    
+    /* Add other responsive styles as needed */
+  }
