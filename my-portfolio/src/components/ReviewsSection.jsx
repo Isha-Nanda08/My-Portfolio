@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Marquee from './Marque';
+// import Marquee from './Marque';
 import ReviewCard from './ReviewCard';
 import '../styles/Marquee.css'; // Add styles for Marquee & ReviewCard
 

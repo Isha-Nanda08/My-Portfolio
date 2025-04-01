@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import VortexBackground from "./components/Vortexbackground";
 import Contact from "./components/Contact";
 import useLocoScroll from "./Hooks/LocomotiveScroll";
 import Loader from "./Loader/Loader";

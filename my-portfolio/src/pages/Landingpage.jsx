@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Marquee from "../components/Marque";
-import VortexBackground from "../components/Vortexbackground";
 import Contact from "../components/Contact";
 import useLocoScroll from "../Hooks/LocomotiveScroll";
 import Loader from "../Loader/Loader";
@@ -53,9 +51,7 @@ const Landingpage = () => {
       <RollingNavbar/>
       <CustomCursor />
 
-      {/* Vortex Background */}
-      {/* <VortexBackground  /> */}
-      {/* <FlickeringGrid/> */}
+    
       <div
         style={{
           // position: "absolute",
