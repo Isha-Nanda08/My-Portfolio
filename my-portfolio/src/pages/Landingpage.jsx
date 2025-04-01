@@ -12,7 +12,8 @@ import MondrianGrid from "../components/MondianGrid";
 import Explode from "../components/Explode";
 import SocialIcons from "../components/socialIcons";
 import HexagonGrid from "../components/Hexagon";
-import Navbar from "../components/Navbar";
+import RollingNavbar from "../components/Navbar";
+
 
 const Landingpage = () => {
   // State to manage loading status
@@ -43,7 +44,7 @@ const Landingpage = () => {
             overflow:'hidden'
         }}>
       {/* Custom Cursor */}
-      <Navbar/>
+      <RollingNavbar/>
       <CustomCursor />
 
       {/* Vortex Background */}
@@ -59,7 +60,7 @@ const Landingpage = () => {
 
         <MondrianGrid/>
       </div>
-      <IconCloud/>
+  
       <Explode/>
 
       {/* Animated Grid */}
