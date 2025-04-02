@@ -5,13 +5,13 @@ import Loader from "../Loader/Loader";
 import Grid from "animated-grid-lines";
 import CustomCursor from "../components/CustomCursor"; // Import CustomCursor
 // import FlickeringGrid from "../components/FlickeringGrid";
-import IconCloud from "../components/IconCloud";
+// import IconCloud from "../components/IconCloud";
 import MondrianGrid from "../components/MondianGrid";
 import Explode from "../components/Explode";
-import SocialIcons from "../components/socialIcons";
+// import SocialIcons from "../components/socialIcons";
 import HexagonGrid from "../components/Hexagon";
-import RollingNavbar from "../components/Navbar";
-import SkillsGrid from "../components/skills";
+// import RollingNavbar from "../components/Navbar";
+// import SkillsGrid from "../components/skills";
 
 
 const Landingpage = () => {
