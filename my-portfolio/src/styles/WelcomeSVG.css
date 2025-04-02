@@ -1,0 +1,44 @@
+.welcome-container {
+    display: inline-block;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  
+  #welcome {
+    display: inline-block;
+    box-sizing: border-box;
+    max-height: calc(180px - 2rem);
+    width: auto;
+  }
+  
+  @media screen and (max-width: 768px) {
+    #welcome {
+      max-height: calc(150px - 2rem);
+      width: 100%;
+    }
+  }
+  
+  /* CSS animation for the path */
+  .path-animation {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: transparent;
+    stroke-width: 4;
+  }
+  
+  @keyframes drawPath {
+    0% {
+      stroke-dashoffset: 2745.12;
+      fill: transparent;
+    }
+    70% {
+      stroke-dashoffset: 0;
+      fill: transparent;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      fill: currentColor;
+    }
+  }
+  
+  /* Animation is handled through JS in the React component for better control */

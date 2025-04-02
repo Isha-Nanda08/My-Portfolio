@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "../styles/gridf.css";
 import TextReveal from "../components/TextReveal";
+import WelcomeSVG from "./welcome";
 
 const MondrianGrid = () => {
   const circleTextRef = useRef(null);
@@ -93,6 +94,7 @@ const MondrianGrid = () => {
       
       {/* Intro Text Overlay with Text Reveal */}
       <div className="intro-text">
+        <WelcomeSVG color="#1995ae92" />
         <TextReveal color="#1995ae92" duration={0.5} delay={0.25}>
           <h1 className="intro-title">Hey, this is <span className="name">Isha Nanda</span></h1>
         </TextReveal>

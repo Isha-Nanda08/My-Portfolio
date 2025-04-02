@@ -10,6 +10,8 @@ import MondrianGrid from "../components/MondianGrid";
 import Explode from "../components/Explode";
 // import SocialIcons from "../components/socialIcons";
 import HexagonGrid from "../components/Hexagon";
+import AboutSection from "../components/AboutSection";
+import ProjectsSection from "../components/ProjectSection";
 // import RollingNavbar from "../components/Navbar";
 // import SkillsGrid from "../components/skills";
 
@@ -62,6 +64,8 @@ const Landingpage = () => {
 
         <MondrianGrid/>
       </div>
+      <AboutSection/>
+      <ProjectsSection/>
       <div style={{
         // display:'flex',
         // position:'relative',
