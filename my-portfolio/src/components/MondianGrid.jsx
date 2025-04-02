@@ -88,6 +88,7 @@ const MondrianGrid = () => {
             </span>
           ))}
         </div>
+        DRAG ME
       </div>
       
       {/* Intro Text Overlay with Text Reveal */}

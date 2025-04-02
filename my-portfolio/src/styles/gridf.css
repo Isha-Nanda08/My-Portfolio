@@ -228,22 +228,34 @@
   }
 }
 /* Spinning Text Circle Styles - Reduced Size */
+/* Spinning Text Circle Styles */
 .circle-text-container {
+  color: white;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 120px;  /* Reduced from 200px */
-  height: 120px; /* Reduced from 200px */
+  width: 120px;
+  height: 120px;
   z-index: 10;
   cursor: grab;
   user-select: none;
-  background-color: #ffffff32;
+  background-color: rgba(255, 255, 255, 0.2);
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.circle-text-container:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(104, 198, 242, 0.6);
 }
 
 .circle-text {
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100%;
   animation: rotateText 10s linear infinite;
@@ -262,23 +274,33 @@
   position: absolute;
   left: 50%;
   top: 0;
-  font-size: 12px;  /* Reduced from 16px */
-  transform-origin: 0 60px;  /* Reduced from 100px to match the new radius */
+  font-size: 12px;
+  transform-origin: 0 60px;
   color: white;
   transform: rotate(calc(360deg / var(--total) * var(--i)));
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-shadow: 0 0 3px rgba(104, 198, 242, 0.8);
 }
 
-/* Add to your existing styles */
-.background-grid {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-size: 50px 50px;
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  z-index: 1;
-  pointer-events: none;
+/* Center text inside the circle */
+.circle-text-container::after {
+  /* content: "DRAG ME"; */
+  position: relative;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(0.95);
+  }
 }
