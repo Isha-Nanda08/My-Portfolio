@@ -47,8 +47,8 @@ const Landingpage = () => {
             alignItems:'left',
 
         }}>
-      {/* Custom Cursor */}
-      <RollingNavbar/>
+  
+      
       <CustomCursor />
 
     

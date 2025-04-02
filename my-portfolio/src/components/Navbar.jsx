@@ -2,27 +2,26 @@ import React, { useState, useEffect } from 'react';
 
 const RollingNavbar = () => {
   const [animationStarted, setAnimationStarted] = useState(false);
-  const navItems = [ 'Home','About','Projects',  'skills','Contact'];
-  
+  const navItems = ['Home', 'About', 'Projects', 'Skills', 'Contact'];
+
   useEffect(() => {
     // Start animation after component mounts
     setTimeout(() => {
       setAnimationStarted(true);
     }, 500);
   }, []);
-  
+
   return (
     <div className="navbar-container">
       <div className="navbar-content">
-        {/* Logo container that will be the destination */}
+        {/* Logo container */}
         <div className="logo-container">
-          {/* Logo that rolls in from right to left position */}
           <div className={`logo ${animationStarted ? 'rolling-animation' : ''}`}>
             <span>IN.</span>
           </div>
         </div>
-        
-        {/* Nav items that get revealed from right */}
+
+        {/* Navigation */}
         <nav className="navigation">
           <ul className="nav-list">
             {navItems.map((item, index) => (
@@ -30,31 +29,33 @@ const RollingNavbar = () => {
                 key={item}
                 className={`nav-item ${animationStarted ? 'nav-item-visible' : ''}`}
                 style={{ 
-                  transitionDelay: `${animationStarted ? (navItems.length - index - 1) * 150 + 400 : 0}ms` 
+                  transitionDelay: `${animationStarted ? (navItems.length - index - 1) * 150 + 400 : 0}ms`
                 }}
               >
-                <a href="#">{item}</a>
+                <a href={`#${item.toLowerCase()}`}>{item}</a>
               </li>
             ))}
           </ul>
         </nav>
       </div>
       
+      {/* Styles */}
       <style jsx>{`
-        /* Navbar container styles */
+        /* Navbar fixed at top */
         .navbar-container {
-          /* position:relative, */
-          background-color: #090a0c7d;
+          background-color: rgba(9, 10, 12, 0.8); /* Semi-transparent */
           color: white;
           height: 74px;
           width: 100%;
-          overflow: hidden;
-          position: relative;
-          position:fixed;
-          z-index:100;
+          position: fixed;
+          top: 0;
+          left: 0;
+          z-index: 9999; /* Increased z-index to ensure it stays above all content */
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+          backdrop-filter: blur(10px); /* Blurred background */
         }
         
-        /* Navbar content layout */
+        /* Navbar layout */
         .navbar-content {
           max-width: 1200px;
           margin: 0 auto;
@@ -64,8 +65,8 @@ const RollingNavbar = () => {
           align-items: center;
           justify-content: space-between;
         }
-        
-        /* Logo styles */
+
+        /* Logo */
         .logo-container {
           position: relative;
           height: 48px;
@@ -75,14 +76,14 @@ const RollingNavbar = () => {
         .logo {
           width: 50px;
           height: 50px;
-          background-color: #23509892;
+          background-color: #1995ae92;
           border-radius: 50%;
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
           position: absolute;
           transform: translateX(100vw);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
         .logo span {
@@ -90,7 +91,7 @@ const RollingNavbar = () => {
           font-size: 24px;
         }
         
-        /* Navigation styles */
+        /* Navigation */
         .navigation {
           display: flex;
           align-items: center;
@@ -119,17 +120,17 @@ const RollingNavbar = () => {
         .nav-item a {
           color: white;
           text-decoration: none;
-          transition: color 0.3s ease;
-          font-size:20px;
+          font-size: 20px;
           text-transform: uppercase;
-          padding-right:10px;
+          padding-right: 10px;
+          transition: color 0.3s ease;
         }
         
         .nav-item a:hover {
           color: #60a5fa;
         }
-        
-        /* Animation */
+
+        /* Rolling animation for logo */
         @keyframes rolling {
           0% {
             transform: translateX(calc(100vw - 48px)) rotate(0deg);

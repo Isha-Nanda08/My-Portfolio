@@ -1,13 +1,23 @@
+/* Add these styles to your global CSS */
+
+/* This ensures proper body padding to account for the fixed navbar */
 body {
+  padding-top: 24px; /* Equal to the height of your navbar */
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Make sure your other page sections don't inadvertently use position:fixed or position:absolute with top:0 */
+section, div[data-scroll-section] {
+  position: relative; /* Not fixed or absolute */
+}
+
+/* If you're using a scrolling library like locomotive-scroll, add this: */
+[data-scroll-container] {
+  padding-top: 0 !important; /* Override any padding that might be added by the scroll library */
+}
+
+/* Fix for possible z-index issues */
+.contact-section, .mid-container, .scroll-container {
+  z-index: 1; /* Ensure these are below the navbar's z-index of 9999 */
 }
