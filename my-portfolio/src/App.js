@@ -10,7 +10,7 @@ const App = () => {
   
   return (
     <div>
-      <RollingNavbar/>
+      {/* <RollingNavbar/> */}
       <Landingpage/>
     </div>
   );

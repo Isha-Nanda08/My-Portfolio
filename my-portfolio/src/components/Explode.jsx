@@ -38,9 +38,7 @@ const Explode = () => {
         </div>
       </div>
       
-      <div className="icon-cloud-container">
-        <IconCloud />
-      </div>
+     
     </div>
   );
 };

@@ -20,7 +20,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: #1a1a1a; /* Equivalent to var(--col-dark) */
+
+    background: #1a1a1a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +36,7 @@
     height: 100%;
     top: 100%;
     left: 0;
-    background: #2c2c2c; /* Equivalent to var(--col-dark-grey) */
+    background: #2c2c2c2a; /* Equivalent to var(--col-dark-grey) */
   }
   
   /* Additional layers */

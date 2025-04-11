@@ -12,6 +12,9 @@ import Explode from "../components/Explode";
 import HexagonGrid from "../components/Hexagon";
 import AboutSection from "../components/AboutSection";
 import ProjectsSection from "../components/ProjectSection";
+// import SkillsSection from "../components/SkillsSection";
+import RollingNavbar from "../components/Navbar";
+import CircuitBoardBackground from "../components/SkillsSection";
 // import RollingNavbar from "../components/Navbar";
 // import SkillsGrid from "../components/skills";
 
@@ -37,6 +40,8 @@ const Landingpage = () => {
   }
 
   return (
+    <>
+    <RollingNavbar/>
     <div id="main-container" data-scroll-container className="relative cursor-none" 
         style={{
             marginTop:'0',
@@ -66,15 +71,13 @@ const Landingpage = () => {
       </div>
       <AboutSection/>
       <ProjectsSection/>
-      <div style={{
-        // display:'flex',
-        // position:'relative',
-        // top:'50%'
-        
-      }}>
-        <Explode/>
+     
+        {/* <SkillsSection/> */}
+        <CircuitBoardBackground/>
         {/* // <SkillsGrid/> */}
-      </div>
+        {/* <Explode/> */}
+     
+        {/* <HexagonGrid/> */}
 
       <div
         style={{
@@ -87,13 +90,18 @@ const Landingpage = () => {
         }}
       >
         <Grid />
-        
       </div>
 
       {/* Contact Section */}
-      <HexagonGrid/>
-      <Contact />
+      <div style={{
+        zIndex:1000,
+      }}>
+      
+        <Contact />
+      </div>
+
     </div>
+    </>
   );
 };
 

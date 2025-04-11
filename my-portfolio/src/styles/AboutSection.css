@@ -1,157 +1,435 @@
-/* Container styles */
-.about-container {
-    position: relative;
-    min-height: 100vh;
-    padding: 2rem;
-    background-color: white;
-    overflow: hidden;
+/* Base styles */
+
+
+.container-about {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #e0d8d8;
+  /* overflow: hidden; */
+  background-image: url(../images/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA5L3Jhd3BpeGVsb2ZmaWNlMTJfYV9ibGFua19zaGVldF9vZl93aGl0ZV9ncmFwaF9wYXBlcl93aXRoX2xpbmVzX19kODdiZjE3ZC1iNmM2LTQzYWEtYTJmMy1lMGJmZWM4MWNkYzgucG5n.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
+
+/* Hero section with name */
+.hero-about {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.hero-about h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #110e0e;
+}
+
+.hero-about h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #d3a510;
+  margin-bottom: 2rem;
+}
+
+/* Grid background */
+.background-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  opacity: 0.2;
+}
+
+.grid-horizontal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-horizontal::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #888;
+  top: 10%;
+}
+
+.grid-horizontal::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #888;
+  top: 20%;
+}
+
+.grid-vertical {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.grid-vertical::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: #888;
+  left: 30%;
+}
+
+.grid-vertical::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background-color: #888;
+  left: 70%;
+}
+
+/* For more grid lines */
+.grid-line {
+  position: absolute;
+  background-color: #888;
+}
+
+.horizontal {
+  width: 100%;
+  height: 1px;
+}
+
+.vertical {
+  height: 100%;
+  width: 1px;
+}
+
+/* SVG animation container */
+.svg-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 2rem auto;
+  cursor: pointer;
+  transition: all 0.8s ease;
+  z-index: 10;
+}
+
+/* When active (clicked), this applies */
+.svg-container.active {
+  transform: scale(0.75) translateY(-50px);
+  opacity: 0.7;
+  position: absolute;
+  top: 80px;
+  right: 50px;
+}
+
+.content-wrapper-about {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease;
+  pointer-events: none;
+  z-index: 500;
+}
+.content-wrapper-about.visible .heading{
+  color: #110e0ea8;
+  font-size: 4rem;
+}
+
+.content-wrapper-about.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.click-hint {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #0d0c0c;
+  opacity: 0.8;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
+}
+
+/* SVG animations */
+@keyframes bounce {
+  0%, 100% {
+    translate: 0px 36px;
   }
-  
-  @media (min-width: 768px) {
-    .about-container {
-      padding: 4rem;
-    }
+  50% {
+    translate: 0px 46px;
   }
-  
-  /* Background grid */
-  .background-grid {
-    position: absolute;
-    width: 100%;
-    height: 100%;
+}
+
+@keyframes bounce2 {
+  0%, 100% {
+    translate: 0px 46px;
   }
-  
-  .grid-horizontal {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: 50px 50px;
-    background-image: linear-gradient(to bottom, #e0e0e0 1px, transparent 1px);
-    animation: moveGridY 15s linear infinite;
+  50% {
+    translate: 0px 56px;
   }
-  
-  .grid-vertical {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-size: 50px 50px;
-    background-image: linear-gradient(to right, #e0e0e0 1px, transparent 1px);
-    animation: moveGridX 15s linear infinite;
+}
+
+@keyframes umbral {
+  0% {
+    stop-color: #d3a5102e;
   }
-  
-  /* Floating dots */
-  .floating-dot {
-    position: absolute;
-    width: 0.5rem;
-    height: 0.5rem;
-    border-radius: 50%;
-    background-color: rgba(96, 165, 250, 0.6); /* blue-400 with opacity */
-    animation: float 15s linear infinite;
+  50% {
+    stop-color: rgba(211, 165, 16, 0.519);
   }
-  
-  /* Content styles */
-  .content-wrapper {
-    max-width: 48rem;
-    margin: 0 auto;
-    position: relative;
-    z-index: 10;
+  100% {
+    stop-color: #d3a5102e;
   }
-  
-  .heading {
-    font-size: 2.25rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    color: #1f2937; /* text-gray-800 */
+}
+
+@keyframes particles {
+  0%, 100% {
+    translate: 0px 16px;
+  }
+  50% {
+    translate: 0px 6px;
+  }
+}
+
+#particles {
+  animation: particles 4s ease-in-out infinite;
+}
+
+#animatedStop {
+  animation: umbral 4s infinite;
+}
+
+#bounce {
+  animation: bounce 4s ease-in-out infinite;
+  translate: 0px 36px;
+}
+
+#bounce2 {
+  animation: bounce2 4s ease-in-out infinite;
+  translate: 0px 46px;
+  animation-delay: 0.5s;
+}
+
+.heading {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  animation: fadeIn 1s forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+/* Content blocks */
+.content-block {
+  background-color: rgba(40, 40, 45, 0.7);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(80, 80, 85, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-in {
+  animation: fadeIn 1s forwards;
+}
+
+.delay-300 {
+  animation-delay: 0.6s;
+}
+
+.delay-600 {
+  animation-delay: 0.9s;
+}
+
+@keyframes fadeIn {
+  from {
     opacity: 0;
-    transition: opacity 1s;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.subheading {
+  font-size: 1.7rem;
+  color: #d3a510;
+  margin-bottom: 1rem;
+}
+
+.paragraph {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
+/* Skills container */
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background-color: #2c62b5;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:nth-child(2) {
+  background-color: #732cb5;
+}
+
+.skill-tag:nth-child(3) {
+  background-color: #7b25d1;
+}
+
+.skill-tag:nth-child(4) {
+  background-color: #9b0ee7;
+}
+
+.skill-tag:nth-child(5) {
+  background-color: #0d7b94;
+}
+
+.skill-tag:nth-child(6) {
+  background-color: #3fa0ef;
+}
+
+.skill-tag:hover {
+  transform: translateY(-3px);
+}
+
+/* Floating dots */
+.floating-dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #d3a510;
+  opacity: 0.6;
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Generate 5 floating dots with different positions */
+.dot1 {
+  top: 15%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.dot2 {
+  top: 25%;
+  left: 85%;
+  animation-delay: 1s;
+}
+
+.dot3 {
+  top: 65%;
+  left: 20%;
+  animation-delay: 2s;
+}
+
+.dot4 {
+  top: 75%;
+  left: 75%;
+  animation-delay: 3s;
+}
+
+.dot5 {
+  top: 45%;
+  left: 90%;
+  animation-delay: 4s;
+}
+
+/* Achievements grid */
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+
+.achievement-item {
+  background-color: rgba(60, 60, 65, 0.5);
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.achievement-title {
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+/* Media queries for responsiveness */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 4rem;
   }
   
-  @media (min-width: 768px) {
-    .heading {
-      font-size: 3rem;
-    }
-  }
-  
-  .subheading {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: #1f2937; /* text-gray-800 */
-  }
-  
-  .paragraph {
-    color: #374151; /* text-gray-700 */
-    line-height: 1.625;
-    margin-bottom: 1.5rem;
+  .hero h2 {
+    font-size: 2rem;
   }
   
   .content-block {
-    opacity: 0;
-    transform: translateY(1.25rem);
+    padding: 2rem;
   }
   
-  .fade-in {
-    animation: fadeIn 0.8s ease forwards;
+  .heading {
+    font-size: 3rem;
   }
   
-  .delay-300 {
-    animation-delay: 0.3s;
+  /* Add more grid lines for larger screens */
+  .grid-horizontal::before {
+    top: 25%;
   }
   
-  .delay-600 {
-    animation-delay: 0.6s;
+  .grid-horizontal::after {
+    top: 75%;
   }
   
-  .delay-900 {
-    animation-delay: 0.9s;
+  .grid-vertical::before {
+    left: 25%;
   }
   
-  /* Skills section */
-  .skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
+  .grid-vertical::after {
+    left: 75%;
   }
   
-  .skill-tag {
-    background-color: #f3f4f6; /* bg-gray-100 */
-    color: #1f2937; /* text-gray-800 */
-    padding: 0.5rem 1rem;
-    border-radius: 9999px;
-    font-size: 0.875rem;
-    transition: all 0.3s;
-    transform: translateY(0);
+  .svg-container.active {
+    top: 150px;
+    right: 100px;
   }
   
-  .skill-tag:hover {
-    background-color: #e5e7eb; /* bg-gray-200 */
-    transform: translateY(-0.25rem);
+  .achievements-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  /* Animations */
-  @keyframes moveGridX {
-    0% { background-position-x: 0; }
-    100% { background-position-x: 50px; }
-  }
-  
-  @keyframes moveGridY {
-    0% { background-position-y: 0; }
-    100% { background-position-y: 50px; }
-  }
-  
-  @keyframes float {
-    0% { transform: translate(0, 0); }
-    25% { transform: translate(100px, 50px); }
-    50% { transform: translate(50px, 100px); }
-    75% { transform: translate(-50px, 50px); }
-    100% { transform: translate(0, 0); }
-  }
-  
-  @keyframes fadeIn {
-    to { opacity: 1; transform: translateY(0); }
-  }
+}
