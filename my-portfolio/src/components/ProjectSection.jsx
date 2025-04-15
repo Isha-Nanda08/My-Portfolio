@@ -5,7 +5,7 @@ import '../styles/Projects.css';
 const projectsData = [
   {
     id: 1,
-    title: "E-commerce Platform",
+    title: "ATLAS GAME",
     description: "A full-stack e-commerce solution with user authentication, product management, and payment processing",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1470&auto=format&fit=crop",
     skills: ["React", "Node.js", "MongoDB", "Stripe"],
@@ -14,7 +14,7 @@ const projectsData = [
   },
   {
     id: 2,
-    title: "Portfolio Website",
+    title: "TalkGenie",
     description: "A responsive portfolio website with dynamic content and 3D animations",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1415&auto=format&fit=crop",
     skills: ["React", "Three.js", "CSS3", "GSAP"],
@@ -23,7 +23,7 @@ const projectsData = [
   },
   {
     id: 3,
-    title: "Task Management App",
+    title: "FashionEngage",
     description: "A collaborative task management application with real-time updates and data visualization",
     image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1472&auto=format&fit=crop",
     skills: ["React", "Firebase", "Chart.js", "Material UI"],
