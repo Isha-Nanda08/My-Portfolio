@@ -14,7 +14,8 @@ import AboutSection from "../components/AboutSection";
 import ProjectsSection from "../components/ProjectSection";
 // import SkillsSection from "../components/SkillsSection";
 import RollingNavbar from "../components/Navbar";
-import CircuitBoardBackground from "../components/SkillsSection";
+// import CircuitBoardBackground from "../components/SkillsSection";
+import SkillsExplosion from "../components/SkillsSection";
 // import RollingNavbar from "../components/Navbar";
 // import SkillsGrid from "../components/skills";
 
@@ -72,8 +73,8 @@ const Landingpage = () => {
       <AboutSection/>
       <ProjectsSection/>
      
-        {/* <SkillsSection/> */}
-        <CircuitBoardBackground/>
+        <SkillsExplosion/>
+        
         {/* // <SkillsGrid/> */}
         {/* <Explode/> */}
      

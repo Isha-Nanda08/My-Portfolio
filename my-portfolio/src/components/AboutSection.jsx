@@ -54,7 +54,7 @@ const AboutSection = () => {
             <polygon
               transform="rotate(45 100 100)"
               strokeWidth="1"
-              stroke="#d3a410"
+              stroke="#9810d3"
               fill="none"
               points="70,70 148,50 130,130 50,150"
               id="bounce"
@@ -62,7 +62,7 @@ const AboutSection = () => {
             <polygon
               transform="rotate(45 100 100)"
               strokeWidth="1"
-              stroke="#d3a410"
+              stroke="#9810d3"
               fill="none"
               points="70,70 148,50 130,130 50,150"
               id="bounce2"
@@ -71,7 +71,7 @@ const AboutSection = () => {
               transform="rotate(45 100 100)"
               strokeWidth="2"
               stroke=""
-              fill="#414750"
+              fill="#9810d3"
               points="70,70 150,50 130,130 50,150"
             ></polygon>
             <polygon
@@ -90,7 +90,7 @@ const AboutSection = () => {
               transform="translate(20, 31)"
               strokeWidth="2"
               stroke=""
-              fill="#b7870f"
+              fill="#10acd3"
               points="80,50 80,75 80,99 40,75"
             ></polygon>
             <polygon
@@ -102,9 +102,9 @@ const AboutSection = () => {
             ></polygon>
             <defs>
               <linearGradient y2="100%" x2="0%" y1="-17%" x1="10%" id="gradiente2">
-                <stop style={{ stopColor: '#d3a51000', stopOpacity: 1 }} offset="20%"></stop>
+                <stop style={{ stopColor: '#10d3c953', stopOpacity: 1 }} offset="20%"></stop>
                 <stop
-                  style={{ stopColor: '#d3a51054', stopOpacity: 1 }}
+                  style={{ stopColor: '#10d3c953', stopOpacity: 1 }}
                   offset="100%"
                   id="animatedStop"
                 ></stop>
@@ -114,7 +114,7 @@ const AboutSection = () => {
               transform="rotate(180 100 100) translate(20, 20)"
               strokeWidth="2"
               stroke=""
-              fill="#d3a410"
+              fill="#10acd3"
               points="80,50 80,75 80,99 40,75"
             ></polygon>
             <polygon
@@ -126,9 +126,9 @@ const AboutSection = () => {
             ></polygon>
             <defs>
               <linearGradient y2="100%" x2="10%" y1="0%" x1="0%" id="gradiente3">
-                <stop style={{ stopColor: '#d3a51000', stopOpacity: 1 }} offset="20%"></stop>
+                <stop style={{ stopColor: '#10d3c953', stopOpacity: 1 }} offset="20%"></stop>
                 <stop
-                  style={{ stopColor: '#d3a51054', stopOpacity: 1 }}
+                  style={{ stopColor: '#10d3c943', stopOpacity: 1 }}
                   offset="100%"
                   id="animatedStop"
                 ></stop>
@@ -138,7 +138,7 @@ const AboutSection = () => {
               transform="rotate(45 100 100) translate(80, 95)"
               strokeWidth="2"
               stroke=""
-              fill="#ffe4a1"
+              fill="#10acd3"
               points="5,0 5,5 0,5 0,0"
               id="particles"
             ></polygon>
@@ -146,7 +146,7 @@ const AboutSection = () => {
               transform="rotate(45 100 100) translate(80, 55)"
               strokeWidth="2"
               stroke=""
-              fill="#ccb069"
+              fill="#10acd3"
               points="6,0 6,6 0,6 0,0"
               id="particles"
             ></polygon>
@@ -209,7 +209,7 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
-        
+{/*         
         <div className="content-block fade-in delay-600">
           <h2 className="subheading">My Skills</h2>
           <div className="skills-container">
@@ -220,7 +220,7 @@ const AboutSection = () => {
             <span className="skill-tag">UI/UX Design</span>
             <span className="skill-tag">Responsive Design</span>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

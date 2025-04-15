@@ -29,7 +29,7 @@
 .hero-about h2 {
   font-size: 1.5rem;
   font-weight: 300;
-  color: #d3a510;
+  color: #10afd3b6;
   margin-bottom: 2rem;
 }
 
@@ -269,7 +269,7 @@
 
 .subheading {
   font-size: 1.7rem;
-  color: #d3a510;
+  color: #10afd3a8;
   margin-bottom: 1rem;
 }
 
@@ -325,7 +325,7 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #d3a510;
+  background-color: #10afd3a7;
   opacity: 0.6;
   animation: float 8s ease-in-out infinite;
 }
