@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const RollingNavbar = () => {
   const [animationStarted, setAnimationStarted] = useState(false);
-  const navItems = ['Home', 'About', 'Projects', 'Skills', 'Contact'];
+  const navItems = ['About', 'Projects', 'Skills','Education','Profiles', 'Contact'];
 
   useEffect(() => {
     // Start animation after component mounts
@@ -57,7 +57,7 @@ const RollingNavbar = () => {
         
         /* Navbar layout */
         .navbar-content {
-          max-width: 1200px;
+          max-width: 1550px;
           margin: 0 auto;
           padding: 0 24px;
           height: 100%;

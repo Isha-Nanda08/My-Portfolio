@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import SocialIcons from './socialIcons';
+// import SocialIcons from './socialIcons';
+import ContactSection from './ContactSection';
 
 const RollingTextContact = () => {
   const [mounted, setMounted] = useState(false);
@@ -160,7 +161,8 @@ const RollingTextContact = () => {
           </div>
         </div>
       </div>
-      <SocialIcons/>
+      {/* <SocialIcons/> */}
+      <ContactSection/>
       
     </div>
   );

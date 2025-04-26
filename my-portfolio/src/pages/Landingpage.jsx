@@ -9,6 +9,7 @@ import ProjectsSection from "../components/ProjectSection";
 import SkillsExplosion from "../components/SkillsSection";
 import RollingNavbar from "../components/Navbar";
 import Loader from "../Loader/Loader"
+import Profile from "../components/Profiles";
 // Import or create the DominoSpinner component
 const DominoSpinner = () => {
   return (
@@ -207,6 +208,7 @@ const Landingpage = () => {
             <AboutSection />
             <ProjectsSection />
             <SkillsExplosion />
+            <Profile/>
 
             {/* Button to show grid section */}
             <div

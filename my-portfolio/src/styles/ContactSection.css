@@ -1,0 +1,231 @@
+/* ContactSection.css */
+.contact-container {
+    background-color: #0a101e;
+    color: white;
+    padding: 2rem 5%;
+    /* font-family: 'Inter', sans-serif; */
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  .contact-heading {
+    color: #00ffc3;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+  }
+  
+  .contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .contact-form-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 800px;
+    background-color: rgba(15, 23, 42, 0.8);
+    border-radius: 10px;
+    padding: 2rem;
+  }
+  
+  .contact-intro {
+    color: #e2e8f0;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #e2e8f0;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    color: white;
+    font-family: inherit;
+    resize: vertical;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2);
+  }
+  
+  .send-button {
+    background: linear-gradient(to right, #ec4899, #8b5cf6);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .send-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .icon-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #64748b;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #64748b;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: background-color 0.2s;
+  }
+  
+  .social-icon:hover {
+    background-color: #4f46e5;
+  }
+  
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #1e293b;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .author-link {
+    color: #00ffc3;
+    text-decoration: none;
+  }
+  
+  .footer-actions {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .footer-button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: transparent;
+    border: 1px solid #475569;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .footer-button:hover {
+    background-color: #1e293b;
+  }
+  
+  .scroll-top-button {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background-color: #ec4899;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.5);
+    transition: transform 0.2s, background-color 0.2s;
+  }
+  
+  .scroll-top-button:hover {
+    transform: translateY(-4px);
+    background-color: #d946ef;
+  }
+  
+  /* Vertical "CONTACT" text on the right side */
+  .contact-container::after {
+    content: "CONTACT";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #4f46e5;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .contact-content {
+      flex-direction: column;
+    }
+    
+    .contact-heading {
+      font-size: 1.5rem;
+    }
+    
+    .footer {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
