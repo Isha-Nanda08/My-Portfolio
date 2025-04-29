@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Contact from "../components/Contact";
 import useLocoScroll from "../Hooks/LocomotiveScroll";
-import Grid from "animated-grid-lines";
+// import Grid from "animated-grid-lines";
 import CustomCursor from "../components/CustomCursor";
 import MondrianGrid from "../components/MondianGrid";
 import AboutSection from "../components/AboutSection";
@@ -10,6 +10,7 @@ import SkillsExplosion from "../components/SkillsSection";
 import RollingNavbar from "../components/Navbar";
 import Loader from "../Loader/Loader"
 import Profile from "../components/Profiles";
+import VoltageButton from "../components/PlaySec";
 // Import or create the DominoSpinner component
 const DominoSpinner = () => {
   return (
@@ -211,7 +212,7 @@ const Landingpage = () => {
             <Profile/>
 
             {/* Button to show grid section */}
-            <div
+            {/* <div
               style={{
                 width: "100%",
                 display: "flex",
@@ -248,10 +249,10 @@ const Landingpage = () => {
                 <br />
                 Play with the Grid Section
               </button>
-            </div>
+            </div> */}
 
             {/* Grid Section - conditionally rendered */}
-            <div
+            {/* <div
               ref={gridSectionRef}
               style={{
                 width: "100%",
@@ -267,9 +268,10 @@ const Landingpage = () => {
               }}
             >
               {showGridSection && <Grid />} {/* Only render Grid when section is shown */}
-            </div>
+            {/* </div>  */}
 
             {/* Contact Section */}
+            <VoltageButton/>
             <div style={{ zIndex: 1000 }}>
               <Contact />
             </div>

@@ -28,7 +28,7 @@ export default function PortfolioSkillsSection() {
   return (
     <div className="skills-section">
       <h2 className="section-title">Skills</h2>
-      <p className="section-subtitle">Hover over a skill to see details</p>
+      {/* <p className="section-subtitle">Hover over a skill to see details</p> */}
       
       <nav className="skills-grid">
         {skills.map((skill, index) => (
@@ -181,7 +181,7 @@ export default function PortfolioSkillsSection() {
         .skill-block:focus-visible {
           --lerp: var(--lerp-0);
           z-index: 5;
-          transform: scale(1.05);
+          transform: scale(1.0);
         }
 
         .skill-block:has(+ .skill-block:hover),

@@ -59,10 +59,10 @@ export function CardContainer({ children, className, containerClassName }) {
   );
 }
 
-// CardBody component
+// CardBody component with side-by-side layout
 export function CardBody({ children, className }) {
   return (
-    <div className={cn('card-body', className)}>
+    <div className={cn('card-body side-by-side-layout', className)}>
       {children}
     </div>
   );
@@ -101,54 +101,105 @@ export function CardItem({
   );
 }
 
-// Example usage component
+// New component for left side (code and preview)
+export function CardLeftSide({ children, className }) {
+  return (
+    <div className={cn('card-left-side', className)}>
+      {children}
+    </div>
+  );
+}
+
+// New component for right side (description)
+export function CardRightSide({ children, className }) {
+  return (
+    <div className={cn('card-right-side', className)}>
+      {children}
+    </div>
+  );
+}
+
+// Example usage component with side-by-side layout
 export function Card3DExample() {
   return (
-    <CardContainer>
+    <CardContainer containerClassName="side-by-side-container">
       <CardBody className="group-card">
-        <CardItem
-          translateZ={50}
-          className="card-title"
-        >
-          Make things float in air
-        </CardItem>
-        <CardItem
-          as="p"
-          translateZ={60}
-          className="card-description"
-        >
-          Hover over this card to unleash the power of CSS perspective
-        </CardItem>
-        <CardItem
-          translateZ={100}
-          className="card-image-container"
-        >
-          <img
-            src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=2560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            height="1000"
-            width="1000"
-            className="card-image"
-            alt="thumbnail"
-          />
-        </CardItem>
-        <div className="card-footer">
+        {/* Left side with code and preview */}
+        <CardLeftSide>
           <CardItem
-            translateZ={20}
-            as="a"
-            href="https://example.com"
-            target="_blank"
-            className="card-link"
+            translateZ={50}
+            className="card-title"
           >
-            Visit →
+            Make things float in air
           </CardItem>
+          
           <CardItem
-            translateZ={20}
-            as="button"
-            className="card-button"
+            translateZ={100}
+            className="card-image-container"
           >
-            Get Started
+            <img
+              src="/api/placeholder/400/300"
+              className="card-image"
+              alt="preview video placeholder"
+            />
           </CardItem>
-        </div>
+          
+          <CardItem
+            translateZ={40}
+            className="card-code-container"
+          >
+            <pre className="card-code">
+              {`// Example code
+const floatingEffect = () => {
+  // Your animation code here
+};`}
+            </pre>
+          </CardItem>
+        </CardLeftSide>
+        
+        {/* Right side with description */}
+        <CardRightSide>
+          <CardItem
+            as="div"
+            translateZ={60}
+            className="card-description"
+          >
+            <h3>3D Card Effect</h3>
+            <p>
+              This component creates an interactive 3D effect that responds to mouse 
+              movement. When users hover over the card, elements appear to float at 
+              different depths creating a parallax effect.
+            </p>
+            <p>
+              The effect uses CSS perspective transformations and React state to 
+              track mouse position and apply the appropriate rotations and translations 
+              to create a realistic 3D appearance.
+            </p>
+            <p>
+              Each element can be configured with different Z-depths to control how 
+              much they "pop out" when the card is hovered.
+            </p>
+          </CardItem>
+          
+          <div className="card-footer">
+            <CardItem
+              translateZ={20}
+              as="a"
+              href="https://example.com"
+              target="_blank"
+              className="card-link"
+            >
+              Learn More →
+            </CardItem>
+            <CardItem
+              translateZ={20}
+              as="button"
+              className="card-button"
+            >
+              Get Started
+            </CardItem>
+          </div>
+        </CardRightSide>
       </CardBody>
     </CardContainer>
   );

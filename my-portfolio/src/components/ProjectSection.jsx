@@ -116,11 +116,12 @@ const ProjectsSection = () => {
       </div>
       
       <div className="projects-grid" style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-        gap: '30px',
-        maxWidth: '1200px',
-        margin: '0 auto'
+        display: 'fles',
+        // gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+        // gap: '30px',
+        maxWidth: '100%',
+        margin: '0 auto',
+        flexDirection:'column'
       }}>
         {projectsData.map((project) => (
           <CardContainer key={project.id} style={{

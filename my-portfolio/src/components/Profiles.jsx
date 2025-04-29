@@ -32,7 +32,7 @@ export default function Profile() {
       </h1>
       
       {/* Original Social Links */}
-      <div className="social-links">
+      <div className="social-links-profile">
         <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="social-link">
           <span className="icon">𝕏</span>
         </a>
