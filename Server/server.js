@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware with specific CORS configuration
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://isha-nanda-portfolio.onrender.comn.com'], // Replace with your frontend URL
+  origin: ['http://localhost:3000', 'https://isha-nanda-portfolio.onrender.com'], // Replace with your frontend URL
   methods: ['GET', 'POST'],
   credentials: true
 }));
