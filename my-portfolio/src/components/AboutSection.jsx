@@ -1,12 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles/AboutSection.css';
 
 const AboutSection = () => {
   const [isContentVisible, setIsContentVisible] = useState(false);
+  const [isDecoding, setIsDecoding] = useState(false);
+  const [decodingComplete, setDecodingComplete] = useState(false);
 
   const toggleContent = () => {
-    setIsContentVisible(!isContentVisible);
+    if (!isContentVisible) {
+      setIsDecoding(true);
+      // After decoding animation completes, show the actual content
+      setTimeout(() => {
+        setDecodingComplete(true);
+        setTimeout(() => {
+          setIsContentVisible(true);
+          setIsDecoding(false);
+        }, 500);
+      }, 3000); // 3 seconds for the decoding animation
+    } else {
+      setIsContentVisible(false);
+      setDecodingComplete(false);
+    }
   };
+
+  // LaTeX versions of the content
+  const latexAboutMe = `
+\\documentclass{article}
+\\usepackage{lipsum}
+\\begin{document}
+\\section{About Me}
+Prefinal year Information Technology student at Dr. B. R. Ambedkar National Institute of Technology, Jalandhar. Passionate about software development with experience in building scalable web applications.
+I'm a passionate developer focused on creating beautiful, functional, and user-centered digital experiences. With a background in both design and development, I bridge the gap between aesthetics and functionality.
+\\end{document}
+  `;
+
+  const latexAchievements = `
+\\begin{itemize}
+  \\item \\textbf{Myntra HackkerRamp 2024} - Prefinalist in the competition
+  \\item \\textbf{Department Representative} - Internship Representative of my Department
+  \\item \\textbf{IOTA Club} - Web Developer in the IOTA club
+  \\item \\textbf{Hackathons} - Participated in various Hackathons
+\\end{itemize}
+  `;
 
   return (
     <div className="container-about">
@@ -38,12 +73,6 @@ const AboutSection = () => {
       <div className="floating-dot dot4"></div>
       <div className="floating-dot dot5"></div>
       
-      {/* Hero section */}
-      {/* <div className="hero">
-        <h1>John Doe</h1>
-        <h2>Software Developer</h2>
-      </div> */}
-
       {/* SVG animation that serves as a clickable button */}
       <div 
         className={`svg-container ${isContentVisible ? 'active' : ''}`}
@@ -175,53 +204,95 @@ const AboutSection = () => {
         </svg>
       </div>
       
-      {!isContentVisible && <div className="click-hint">Click the cube to learn more</div>}
-
-      {/* Content that appears when SVG is clicked */}
-      <div className={`content-wrapper-about ${isContentVisible ? 'visible' : ''}`}>
-        <h1 className="heading">About Me</h1>
-        
-        <div className="content-block fade-in">
-          <p className="paragraph">
-            Prefinal year Information Technology student at Dr. B. R. Ambedkar National Institute of Technology, Jalandhar. Passionate about software development with experience in building scalable web applications.
-            I'm a passionate developer focused on creating beautiful, functional, and user-centered digital experiences. With a background in both design and development, I bridge the gap between aesthetics and functionality.
-          </p>
+      {!isContentVisible ? (
+        <div className="latex-content-wrapper">
+          {!isDecoding ? (
+            <>
+              <div className="latex-code">
+                <h1 className="latex-heading">About Me</h1>
+                <pre>{latexAboutMe}</pre>
+                
+                <h2 className="latex-subheading">Achievements And Positions</h2>
+                <pre>{latexAchievements}</pre>
+              </div>
+              <div className="click-hint">Click the cube to decode LaTeX</div>
+            </>
+          ) : (
+            <div className={`decoding-container ${decodingComplete ? "complete" : ""}`}>
+              <div className="binary-overlay"></div>
+              <div className="decoding-text">
+                <div className="terminal">
+                  <div className="terminal-header">
+                    <div className="terminal-buttons">
+                      <span className="terminal-button terminal-red"></span>
+                      <span className="terminal-button terminal-yellow"></span>
+                      <span className="terminal-button terminal-green"></span>
+                    </div>
+                    <div className="terminal-title">LaTeX Parser</div>
+                  </div>
+                  <div className="terminal-body">
+                    {!decodingComplete ? (
+                      <>
+                        <div className="typing-effect">
+                          <span className="prompt">$</span> LaTeX_Parser --decode --file=about.tex
+                        </div>
+                        <div className="processing-text">
+                          <div className="progress-line">Analyzing LaTeX structure... <span className="status">DONE</span></div>
+                          <div className="progress-line">Parsing document classes... <span className="status">DONE</span></div>
+                          <div className="progress-line">Extracting content... <span className="status">DONE</span></div>
+                          <div className="progress-line">Converting to HTML... <span className="status">IN PROGRESS</span></div>
+                          <div className="progress-line">Applying styles... <span className="status-pending">PENDING</span></div>
+                          <div className="progress-bar">
+                            <div className="progress-fill"></div>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      <div className="success-message">
+                        <div className="checkmark">✓</div>
+                        <span>Decoding complete! Rendering content...</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-        
-        <div className="content-block fade-in delay-300">
-          <h2 className="subheading">Achievements And Positions</h2>
-          <div className="achievements-grid">
-            <div className="achievement-item">
-              <h3 className="achievement-title">Myntra HackkerRamp 2024</h3>
-              <p className="paragraph">Prefinalist in the competition</p>
-            </div>
-            <div className="achievement-item">
-              <h3 className="achievement-title">Department Representative</h3>
-              <p className="paragraph">Internship Representative of my Department</p>
-            </div>
-            <div className="achievement-item">
-              <h3 className="achievement-title">IOTA Club</h3>
-              <p className="paragraph">Web Developer in the IOTA club</p>
-            </div>
-            <div className="achievement-item">
-              <h3 className="achievement-title">Hackathons</h3>
-              <p className="paragraph">Participated in various Hackathons</p>
+      ) : (
+        <div className="content-wrapper-about visible">
+          <h1 className="heading">About Me</h1>
+          
+          <div className="content-block fade-in">
+            <p className="paragraph">
+              Prefinal year Information Technology student at Dr. B. R. Ambedkar National Institute of Technology, Jalandhar. Passionate about software development with experience in building scalable web applications.
+              I'm a passionate developer focused on creating beautiful, functional, and user-centered digital experiences. With a background in both design and development, I bridge the gap between aesthetics and functionality.
+            </p>
+          </div>
+          
+          <div className="content-block fade-in delay-300">
+            <h2 className="subheading">Achievements And Positions</h2>
+            <div className="achievements-grid">
+              <div className="achievement-item">
+                <h3 className="achievement-title">Myntra HackkerRamp 2024</h3>
+                <p className="paragraph">Prefinalist in the competition</p>
+              </div>
+              <div className="achievement-item">
+                <h3 className="achievement-title">Department Representative</h3>
+                <p className="paragraph">Internship Representative of my Department</p>
+              </div>
+              <div className="achievement-item">
+                <h3 className="achievement-title">IOTA Club</h3>
+                <p className="paragraph">Web Developer in the IOTA club</p>
+              </div>
+              <div className="achievement-item">
+                <h3 className="achievement-title">Hackathons</h3>
+                <p className="paragraph">Participated in various Hackathons</p>
+              </div>
             </div>
           </div>
         </div>
-{/*         
-        <div className="content-block fade-in delay-600">
-          <h2 className="subheading">My Skills</h2>
-          <div className="skills-container">
-            <span className="skill-tag">React</span>
-            <span className="skill-tag">JavaScript</span>
-            <span className="skill-tag">TypeScript</span>
-            <span className="skill-tag">Node.js</span>
-            <span className="skill-tag">UI/UX Design</span>
-            <span className="skill-tag">Responsive Design</span>
-          </div>
-        </div> */}
-      </div>
+      )}
     </div>
   );
 };

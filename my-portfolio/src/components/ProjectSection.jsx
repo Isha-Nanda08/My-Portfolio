@@ -36,6 +36,17 @@ const projectsData = [
     demoLink: "https://example.com/demo3",
     codeLink: "https://github.com/example/project3",
     demoEmbed: "https://example.com/demo3"
+  },
+  {
+    id: 4,
+    title: "TalkGenie",
+    description: "A responsive portfolio website with dynamic content and 3D animations",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1415&auto=format&fit=crop",
+    video: "https://player.vimeo.com/video/225434434",
+    skills: ["React", "Three.js", "CSS3", "GSAP"],
+    demoLink: "https://example.com/demo2",
+    codeLink: "https://github.com/example/project2",
+    demoEmbed: "https://example.com/demo2"
   }
 ];
 
