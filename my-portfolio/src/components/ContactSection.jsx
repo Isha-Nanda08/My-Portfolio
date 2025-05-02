@@ -10,6 +10,11 @@ import {
   // Facebook
 } from 'lucide-react';
 
+// const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://isha-nanda-portfolio.onrender.com/api'
+  : 'http://localhost:5000/api';
+
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -29,7 +34,7 @@ const ContactSection = () => {
     e.preventDefault();
 
     try {
-        const response = await fetch('http://localhost:5000/api/contact', {
+        const response = await fetch(`${API_URL}/contact`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
