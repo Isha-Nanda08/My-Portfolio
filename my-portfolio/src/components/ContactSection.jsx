@@ -12,7 +12,7 @@ import {
 
 // const API_URL = process.env.REACT_APP_API_URL;
 const API_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://isha-nanda-portfolio.onrender.com/api'
+  ? process.env.REACT_APP_API_URL
   : 'http://localhost:5000/api';
 
 const ContactSection = () => {
