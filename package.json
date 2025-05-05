@@ -1,7 +1,14 @@
 {
-  "dependencies": {
-    "classnames": "^2.5.1",
-    "locomotive-scroll": "^4.1.4",
-    "sass": "^1.86.0"
+  "name": "portfolio-full-stack",
+  "version": "1.0.0",
+  "description": "Portfolio website with Express backend",
+  "main": "Server/server.js",
+  "scripts": {
+    "start": "cd Server && node server.js",
+    "build": "cd my-portfolio && npm install && npm run build",
+    "deploy": "npm install && npm run build && cd Server && npm install"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }

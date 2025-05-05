@@ -7,17 +7,16 @@ require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware with specific CORS configuration
+// Middleware with CORS configuration - simplified for now
+// Update this part of your server code
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://isha-nanda-portfolio.onrender.com'], // Replace with your frontend URL
-  methods: ['GET', 'POST'],
+  origin: process.env.NODE_ENV === 'production'
+     ? [process.env.FRONTEND_URL] // Once you know your frontend URL
+     : ['http://localhost:3000'],
   credentials: true
 }));
+
 app.use(bodyParser.json());
-// Add a route for the root path
-app.get('/', (req, res) => {
-  res.send('Server is running. Use /api/contact for form submissions.');
-});
 
 // Route to handle contact form submission
 app.post('/api/contact', async (req, res) => {
@@ -37,9 +36,9 @@ app.post('/api/contact', async (req, res) => {
     // Check if environment variables are present
     if (!process.env.EMAIL || !process.env.EMAIL_PASSWORD || !process.env.RECEIVER_EMAIL) {
       console.error('Missing environment variables for email configuration');
-      return res.status(500).json({ 
-        error: 'Server configuration error. Please contact the administrator.' 
-      });
+      return res.status(500).json({
+         error: 'Server configuration error. Please contact the administrator.'
+       });
     }
     
     // Configure nodemailer transporter
@@ -51,7 +50,7 @@ app.post('/api/contact', async (req, res) => {
       },
     });
     
-    // Email options - sending from YOUR email, not the user's email (to avoid spoofing)
+    // Email options
     const mailOptions = {
       from: `"Contact Form" <${process.env.EMAIL}>`,
       to: process.env.RECEIVER_EMAIL,
@@ -76,17 +75,17 @@ app.post('/api/contact', async (req, res) => {
     console.error('Error sending email:', error);
     // More specific error messages based on the error type
     if (error.code === 'EAUTH') {
-      return res.status(500).json({ 
-        error: 'Authentication error. Please check email credentials.' 
-      });
+      return res.status(500).json({
+         error: 'Authentication error. Please check email credentials.'
+       });
     } else if (error.code === 'ESOCKET') {
-      return res.status(500).json({ 
-        error: 'Network error. Please check your internet connection.' 
-      });
+      return res.status(500).json({
+         error: 'Network error. Please check your internet connection.'
+       });
     }
-    res.status(500).json({ 
-      error: 'There was an issue sending your message. Please try again later.' 
-    });
+    res.status(500).json({
+       error: 'There was an issue sending your message. Please try again later.'
+     });
   }
 });
 
@@ -95,7 +94,12 @@ app.get('/api/test', (req, res) => {
   res.json({ message: 'API is working!' });
 });
 
+// Simple root route
+app.get('/', (req, res) => {
+  res.send('Server is running');
+});
+
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}, environment: ${process.env.NODE_ENV || 'development'}`);
 });
