@@ -1,105 +1,58 @@
+// Advanced CORS Configuration for Express
 const express = require('express');
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
 const cors = require('cors');
-require('dotenv').config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
-// Middleware with CORS configuration - simplified for now
-// Update this part of your server code
-app.use(cors({
-  origin: process.env.NODE_ENV === 'production'
-     ? [process.env.FRONTEND_URL] // Once you know your frontend URL
-     : ['http://localhost:3000'],
-  credentials: true
-}));
+// Comprehensive CORS middleware
+const corsOptions = {
+  // Dynamically set allowed origins
+  origin: function (origin, callback) {
+    // List of allowed origins - be explicit
+    const allowedOrigins = [
+      'http://localhost:3000', 
+      'https://isha-nanda-portfolio-avqx.onrender.com', 
+      // Add any additional domains here
+      /\.yourdomain\.com$/ // Regex for subdomains if needed
+    ];
 
-app.use(bodyParser.json());
-
-// Route to handle contact form submission
-app.post('/api/contact', async (req, res) => {
-  const { name, email, message } = req.body;
-  
-  if (!name || !email || !message) {
-    return res.status(400).json({ error: 'All fields are required.' });
-  }
-  
-  // Validate email format
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    return res.status(400).json({ error: 'Please provide a valid email address.' });
-  }
-  
-  try {
-    // Check if environment variables are present
-    if (!process.env.EMAIL || !process.env.EMAIL_PASSWORD || !process.env.RECEIVER_EMAIL) {
-      console.error('Missing environment variables for email configuration');
-      return res.status(500).json({
-         error: 'Server configuration error. Please contact the administrator.'
-       });
+    // Check if origin is allowed
+    if (!origin || 
+        allowedOrigins.some(allowedOrigin => 
+          typeof allowedOrigin === 'string' 
+            ? allowedOrigin === origin 
+            : allowedOrigin.test(origin)
+        )
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
     }
-    
-    // Configure nodemailer transporter
-    const transporter = nodemailer.createTransport({
-      service: 'gmail', // or your email provider
-      auth: {
-        user: process.env.EMAIL, // Your email
-        pass: process.env.EMAIL_PASSWORD, // Your email password or app password
-      },
-    });
-    
-    // Email options
-    const mailOptions = {
-      from: `"Contact Form" <${process.env.EMAIL}>`,
-      to: process.env.RECEIVER_EMAIL,
-      replyTo: email, // So you can reply directly to the user
-      subject: `Contact Form Submission from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-      html: `
-        <h3>New Contact Form Submission</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `
-    };
-    
-    // Send email
-    const info = await transporter.sendMail(mailOptions);
-    console.log('Message sent: %s', info.messageId);
-    
-    res.status(200).json({ message: 'Your message has been sent successfully!' });
-  } catch (error) {
-    console.error('Error sending email:', error);
-    // More specific error messages based on the error type
-    if (error.code === 'EAUTH') {
-      return res.status(500).json({
-         error: 'Authentication error. Please check email credentials.'
-       });
-    } else if (error.code === 'ESOCKET') {
-      return res.status(500).json({
-         error: 'Network error. Please check your internet connection.'
-       });
-    }
-    res.status(500).json({
-       error: 'There was an issue sending your message. Please try again later.'
-     });
-  }
+  },
+  methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+  allowedHeaders: [
+    'Content-Type', 
+    'Authorization', 
+    'Origin', 
+    'X-Requested-With', 
+    'Accept'
+  ],
+  credentials: true,
+  maxAge: 3600, // Preflighted requests are valid for 1 hour
+  optionsSuccessStatus: 200
+};
+
+// Apply CORS with detailed options
+app.use(cors(corsOptions));
+
+// Debugging middleware to log CORS issues
+app.use((req, res, next) => {
+  console.log('CORS Debug:');
+  console.log('Origin:', req.get('origin'));
+  console.log('Host:', req.get('host'));
+  console.log('Referer:', req.get('referer'));
+  next();
 });
 
-// Test route
-app.get('/api/test', (req, res) => {
-  res.json({ message: 'API is working!' });
-});
-
-// Simple root route
-app.get('/', (req, res) => {
-  res.send('Server is running');
-});
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}, environment: ${process.env.NODE_ENV || 'development'}`);
-});
+// Export for use in main server file
+module.exports = { corsOptions };

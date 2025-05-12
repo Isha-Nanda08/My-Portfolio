@@ -90,11 +90,11 @@ const ProjectsSection = () => {
 
   return (
     <section className="projects-section" style={{
-      backgroundColor: '#111',
+      // backgroundColor: '#111',
       color: 'white',
       padding: '60px 20px',
       position: 'relative',
-      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.9) 1px, transparent 1px)',
+      // backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.9) 1px, transparent 1px)',
       backgroundSize: '20px 20px',
       backgroundPosition: 'center center',
       minHeight: '100vh',

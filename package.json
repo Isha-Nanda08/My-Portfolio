@@ -1,14 +1,13 @@
 {
-  "name": "portfolio-full-stack",
-  "version": "1.0.0",
-  "description": "Portfolio website with Express backend",
-  "main": "Server/server.js",
+  "name": "portfolio-monorepo",
   "scripts": {
-    "start": "cd Server && node server.js",
-    "build": "cd my-portfolio && npm install && npm run build",
-    "deploy": "npm install && npm run build && cd Server && npm install"
-  },
-  "engines": {
-    "node": ">=14.0.0"
+    "start": "npm run start:server & npm run start:client",
+    "start:server": "cd server && npm start",
+    "start:client": "cd client && npm start",
+    "install": "npm run install:server && npm run install:client",
+    "install:server": "cd server && npm install",
+    "install:client": "cd client && npm install",
+    "build": "npm run build:client",
+    "build:client": "cd client && npm run build"
   }
 }
