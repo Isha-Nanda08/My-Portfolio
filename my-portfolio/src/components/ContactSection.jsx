@@ -7,13 +7,13 @@ import {
   MapPin, 
   Send, 
   Twitter,
-  // Facebook
 } from 'lucide-react';
 
-// const API_URL = process.env.REACT_APP_API_URL;
-const API_URL = process.env.NODE_ENV === 'production' 
-  ? process.env.REACT_APP_API_URL
-  : 'http://localhost:5000/api';
+// Centralized API configuration
+const API_CONFIG = {
+  development: 'http://localhost:5000/api',
+  production: 'https://your-backend-url.onrender.com/api' // REPLACE WITH YOUR ACTUAL BACKEND URL
+};
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -21,48 +21,79 @@ const ContactSection = () => {
     email: '',
     message: ''
   });
+  const [submitStatus, setSubmitStatus] = useState({
+    isLoading: false,
+    error: null,
+    success: false
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormData(prev => ({
+      ...prev,
       [name]: value
-    });
+    }));
+    // Clear any previous errors when user starts typing
+    setSubmitStatus(prev => ({ ...prev, error: null }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
+    // Reset status
+    setSubmitStatus({ isLoading: true, error: null, success: false });
+
+    // Determine API URL based on environment
+    const API_URL = process.env.NODE_ENV === 'production' 
+      ? API_CONFIG.production 
+      : API_CONFIG.development;
 
     try {
-        const response = await fetch(`${API_URL}/contact`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
+      const response = await fetch(`${API_URL}/contact`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Success handling
+        setSubmitStatus({ 
+          isLoading: false, 
+          error: null, 
+          success: true 
         });
-
-        const data = await response.json();
-
-        if (response.ok) {
-            alert(data.message);
-            setFormData({ name: '', email: '', message: '' });
-        } else {
-            alert(data.error || 'Something went wrong.');
-        }
+        alert(data.message);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        // Error handling
+        setSubmitStatus({ 
+          isLoading: false, 
+          error: data.error || 'Something went wrong.', 
+          success: false 
+        });
+        throw new Error(data.error || 'Submission failed');
+      }
     } catch (error) {
-        console.error('Error submitting form:', error);
-        alert('There was an issue submitting the form.');
+      console.error('Error submitting form:', error);
+      setSubmitStatus({ 
+        isLoading: false, 
+        error: error.message || 'There was an issue submitting the form.', 
+        success: false 
+      });
     }
-};
+  };
 
   return (
     <div className="contact-container" style={{
-      backgroundColor: '#111',
+      // backgroundColor: '#111',
       color: 'white',
       padding: '40px 20px',
       position: 'relative',
-      backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.9) 1px, transparent 1px)',
+      // backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.9) 1px, transparent 1px)',
       backgroundSize: '20px 20px',
       backgroundPosition: 'center center',
       minHeight: '100vh',
@@ -74,7 +105,7 @@ const ContactSection = () => {
       }}>
         <h1 style={{
           fontSize: '4rem',
-          color: '#5BD0FB', // Light blue color from your theme
+          color: '#5BD0FB',
           margin: '0',
           fontWeight: '300',
         }}>CONTACT</h1>
@@ -82,7 +113,7 @@ const ContactSection = () => {
           position: 'absolute',
           width: '100px',
           height: '5px',
-          backgroundColor: '#B545E5', // Purple color from your theme
+          backgroundColor: '#B545E5',
           bottom: '-15px',
           left: '50%',
           transform: 'translateX(-50%)'
@@ -103,7 +134,7 @@ const ContactSection = () => {
           backgroundColor: 'rgba(20, 20, 20, 0.8)',
           borderRadius: '8px',
           padding: '30px',
-          border: '1px solid rgba(91, 208, 251, 0.3)' // Light blue border
+          border: '1px solid rgba(91, 208, 251, 0.3)'
         }}>
           <p className="contact-intro" style={{
             color: '#ccc',
@@ -115,11 +146,26 @@ const ContactSection = () => {
             feel free to reach out. I'm always open to new opportunities.
           </p>
           
+          {/* Error Message Display */}
+          {submitStatus.error && (
+            <div style={{
+              backgroundColor: 'rgba(255, 0, 0, 0.1)',
+              border: '1px solid red',
+              color: 'red',
+              padding: '10px',
+              marginBottom: '20px',
+              borderRadius: '4px'
+            }}>
+              {submitStatus.error}
+            </div>
+          )}
+          
           <form onSubmit={handleSubmit} style={{
             display: 'flex',
             flexDirection: 'column',
             gap: '20px'
           }}>
+            {/* Name Input */}
             <div className="form-group" style={{
               display: 'flex',
               flexDirection: 'column',
@@ -145,6 +191,7 @@ const ContactSection = () => {
               />
             </div>
             
+            {/* Email Input */}
             <div className="form-group" style={{
               display: 'flex',
               flexDirection: 'column',
@@ -170,6 +217,7 @@ const ContactSection = () => {
               />
             </div>
             
+            {/* Message Input */}
             <div className="form-group" style={{
               display: 'flex',
               flexDirection: 'column',
@@ -196,10 +244,12 @@ const ContactSection = () => {
               />
             </div>
             
+            {/* Submit Button */}
             <button 
               type="submit" 
+              disabled={submitStatus.isLoading}
               style={{
-                backgroundColor: '#B545E5', // Purple from your theme
+                backgroundColor: submitStatus.isLoading ? '#666' : '#B545E5',
                 color: 'white',
                 border: 'none',
                 padding: '12px 25px',
@@ -208,17 +258,26 @@ const ContactSection = () => {
                 alignItems: 'center',
                 justifyContent: 'center',
                 gap: '10px',
-                cursor: 'pointer',
+                cursor: submitStatus.isLoading ? 'not-allowed' : 'pointer',
                 borderRadius: '4px',
                 alignSelf: 'flex-start',
                 marginTop: '10px',
-                transition: 'all 0.3s ease'
+                transition: 'all 0.3s ease',
+                opacity: submitStatus.isLoading ? 0.5 : 1
               }}
-              onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#9532c8'}
-              onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#B545E5'}
+              onMouseOver={(e) => {
+                if (!submitStatus.isLoading) {
+                  e.currentTarget.style.backgroundColor = '#9532c8';
+                }
+              }}
+              onMouseOut={(e) => {
+                if (!submitStatus.isLoading) {
+                  e.currentTarget.style.backgroundColor = '#B545E5';
+                }
+              }}
             >
-              SEND MESSAGE 
-              <Send size={18} />
+              {submitStatus.isLoading ? 'SENDING...' : 'SEND MESSAGE'}
+              {!submitStatus.isLoading && <Send size={18} />}
             </button>
           </form>
         </div>

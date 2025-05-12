@@ -30,10 +30,10 @@
     grid-template-rows: 4vmin 9vmin 10vmin 7vmin 13vmin 8vmin 5vmin;
     align-items: stretch;
     justify-items: stretch;
-    background: #000;
+    /* background: #000; */
     animation: animate-columns 30s ease-in-out infinite alternate;
     width: 100%;
-    background-image: url(../images/texture-black-tile-background_167862-7842.jpg);
+    /* background-image: url(../images/texture-black-tile-background_167862-7842.jpg); */
   }
   
   .cell {

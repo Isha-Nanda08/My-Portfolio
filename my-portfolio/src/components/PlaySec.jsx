@@ -171,9 +171,11 @@ const VoltageButton = () => {
           margin-top: 2rem;
           width: 100%;
           max-width: 100%;
-          /* background: white; */
+          background: #0d0d0d;
           height:40vh;
+          z-index:200;
         }
+        
         
         @keyframes spark-1 {
           to {

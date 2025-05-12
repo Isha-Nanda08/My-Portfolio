@@ -21,7 +21,7 @@ const RollingTextContact = () => {
 
   const styles = `
     .container {
-      background-color: #000;
+      
       color: #fff;
       min-height: 100vh;
       display: flex;
@@ -37,7 +37,7 @@ const RollingTextContact = () => {
     .image-gallery {
       width: 100%;
       height: 400px;
-      background-color: #1a1a1a;
+      
       display: flex;
       justify-content: center;
       align-items: center;

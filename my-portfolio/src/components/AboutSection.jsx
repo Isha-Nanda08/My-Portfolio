@@ -46,32 +46,6 @@ I'm a passionate developer focused on creating beautiful, functional, and user-c
   return (
     <div className="container-about">
       {/* Grid background */}
-      <div className="background-grid">
-        <div className="grid-horizontal"></div>
-        <div className="grid-vertical"></div>
-        
-        {/* Add more grid lines */}
-        <div className="grid-line horizontal" style={{ top: '30%' }}></div>
-        <div className="grid-line horizontal" style={{ top: '40%' }}></div>
-        <div className="grid-line horizontal" style={{ top: '50%' }}></div>
-        <div className="grid-line horizontal" style={{ top: '60%' }}></div>
-        <div className="grid-line horizontal" style={{ top: '70%' }}></div>
-        
-        <div className="grid-line vertical" style={{ left: '10%' }}></div>
-        <div className="grid-line vertical" style={{ left: '20%' }}></div>
-        <div className="grid-line vertical" style={{ left: '40%' }}></div>
-        <div className="grid-line vertical" style={{ left: '50%' }}></div>
-        <div className="grid-line vertical" style={{ left: '60%' }}></div>
-        <div className="grid-line vertical" style={{ left: '80%' }}></div>
-        <div className="grid-line vertical" style={{ left: '90%' }}></div>
-      </div>
-      
-      {/* Floating dots */}
-      <div className="floating-dot dot1"></div>
-      <div className="floating-dot dot2"></div>
-      <div className="floating-dot dot3"></div>
-      <div className="floating-dot dot4"></div>
-      <div className="floating-dot dot5"></div>
       
       {/* SVG animation that serves as a clickable button */}
       <div 

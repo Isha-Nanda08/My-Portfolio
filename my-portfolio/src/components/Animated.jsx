@@ -4,8 +4,8 @@ export default function AnimatedPattern() {
   // Create a style object for the animation
   const styleObject = {
     '--s': '100px', /* control the size */
-    '--c1': '#adafae',
-    '--c2': '#dde0e1',
+    '--c1': '#101010',
+    '--c2': '#333536',
     
     '--_s': 'calc(2*var(--s)) calc(2*var(--s))',
     '--_g': 'var(--_s) conic-gradient(at 40% 40%, #0000 75%, var(--c1) 0)',
