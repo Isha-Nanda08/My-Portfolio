@@ -13,7 +13,7 @@ const corsOptions = {
       'http://localhost:3000',
       frontendUrl,
       'https://isha-nanda-portfolio-avqx.onrender.com',
-      'https://isha-nanda-portfolio.onrender.com',
+      
       // Add any additional portfolio frontend domains here
     ];
     

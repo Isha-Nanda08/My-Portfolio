@@ -12,7 +12,7 @@ import {
 // Centralized API configuration
 const API_CONFIG = {
   development: 'http://localhost:5000/api',
-  production: 'https://your-backend-url.onrender.com/api' // REPLACE WITH YOUR ACTUAL BACKEND URL
+  production: 'https://isha-nanda-portfolio-u8a5.onrender.com/api' // REPLACE WITH YOUR ACTUAL BACKEND URL
 };
 
 const ContactSection = () => {
