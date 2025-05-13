@@ -25,7 +25,7 @@ export default function SubmarineAnimation() {
             </div>
           </div>
         </div>
-        <div className="heading-skills">SKILLS</div>
+        {/* <div className="heading-skills">SKILLS</div> */}
         
       </div>
       
@@ -75,7 +75,7 @@ export default function SubmarineAnimation() {
         
         .circle-wrapper {
           position: relative;
-          background: linear-gradient(#2d6780, #265569);
+          background: linear-gradient(#0a0a0a, #393d3e);
           width: 300px;
           height: 300px;
           margin: 10px auto 0 auto;
@@ -83,7 +83,7 @@ export default function SubmarineAnimation() {
           z-index: 0;
           border-radius: 50%;
           padding: 0 50px 0 50px;
-          border: 6px solid #3c89aa;
+          border: 6px solid #1a1b1b;
         }
         
         .submarine-wrapper {

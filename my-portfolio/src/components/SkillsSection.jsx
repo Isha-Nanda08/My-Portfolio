@@ -68,7 +68,7 @@ const ScrollingSkills = () => {
       
       <div className="skills-container">
         <h2 className={`section-title ${visible ? 'visible' : ''}`}>
-          <span className="tech-text">SKILLS</span>
+          <div className="tech-text">SKILLS</div>
           <SubmarineAnimation/>
         </h2>
         <PortfolioSkillsSection/>
@@ -156,6 +156,8 @@ const ScrollingSkills = () => {
         .tech-text {
           color: #177ad6;
           font-size:4rem;
+          font:"Tektur", sans-serif;
+          z-index:100;
           /* animation: techTextGlow 3s infinite ease-in-out; */
         }
         
