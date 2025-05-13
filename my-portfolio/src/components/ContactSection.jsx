@@ -146,7 +146,7 @@ const ContactSection = () => {
             feel free to reach out. I'm always open to new opportunities.
           </p>
           
-          {/* Error Message Display */}
+   
           {submitStatus.error && (
             <div style={{
               backgroundColor: 'rgba(255, 0, 0, 0.1)',
