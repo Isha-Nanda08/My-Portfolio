@@ -21,12 +21,14 @@ const RollingTextContact = () => {
 
   const styles = `
     .container {
+
       
       color: #fff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      bottom:0;
     }
     
     .gallery-container {

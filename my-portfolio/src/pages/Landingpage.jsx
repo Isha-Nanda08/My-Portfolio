@@ -88,9 +88,9 @@ const Landingpage = () => {
             <SkillsExplosion />
             <Profile/>
             <VoltageButton/>
-            <div style={{ zIndex: 1000 }}>
+            <footer style={{ zIndex: 1000 }}>
               <Contact />
-            </div>
+            </footer>
           </div>
         </>
       )}
