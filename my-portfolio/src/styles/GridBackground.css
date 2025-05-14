@@ -24,8 +24,8 @@
     background-color: rgba(0, 0, 0, 0.9);
     background-image:
       linear-gradient(rgba(171, 163, 163, 0.5) 1px, transparent 1px),
-      /* linear-gradient(90deg, rgba(132, 130, 130, 0.5) 1px, transparent 1px), */
-      /* linear-gradient(rgba(148, 144, 144, 0.25) 1px, transparent 1px), */
+      linear-gradient(90deg, rgba(132, 130, 130, 0.5) 1px, transparent 1px),
+      linear-gradient(rgba(148, 144, 144, 0.25) 1px, transparent 1px),
       linear-gradient(90deg, rgba(188, 181, 181, 0.25) 1px, transparent 1px);
     background-size: 40px 40px, 40px 40px, 8px 8px, 8px 8px;
     background-attachment: fixed;

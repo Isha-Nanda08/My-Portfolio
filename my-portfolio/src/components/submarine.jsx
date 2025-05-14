@@ -35,7 +35,7 @@ export default function SubmarineAnimation() {
         /* Colors (converted from SCSS variables) */
         
         .sea {
-          margin: 40px auto 0 auto;
+          margin: 0px auto 0 auto;
           overflow: hidden;
 
         }
@@ -78,7 +78,7 @@ export default function SubmarineAnimation() {
           background: linear-gradient(#0a0a0a, #393d3e);
           width: 300px;
           height: 300px;
-          margin: 10px auto 0 auto;
+          margin: px auto 0 auto;
           overflow: hidden;
           z-index: 0;
           border-radius: 50%;

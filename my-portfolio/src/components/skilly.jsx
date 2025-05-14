@@ -56,7 +56,7 @@ export default function PortfolioSkillsSection() {
           padding: 4rem 2rem;
           box-sizing: border-box;
           font-family: 'Google Sans', sans-serif, system-ui;
-          background: #121212; /* Dark background to match front page */
+          /* background: #121212; Dark background to match front page */
           text-align: center;
           color: #F5F5F5;
         }
@@ -83,7 +83,7 @@ export default function PortfolioSkillsSection() {
           margin: 0 auto;
           padding: 2rem;
           border-radius: 16px;
-          background: rgba(30, 30, 30, 0.5); /* Dark background with transparency */
+          background: rgba(30, 30, 30, 0.853);
           backdrop-filter: blur(10px);
           box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
           border: 1px solid rgba(97, 218, 251, 0.1); /* Light blue border */
@@ -112,7 +112,7 @@ export default function PortfolioSkillsSection() {
           content: '';
           width: 5%;
           aspect-ratio: 1;
-          background: rgba(255, 255, 255, 0.3);
+          background: rgba(15, 15, 15, 0.3);
           position: absolute;
           bottom: 10%;
           left: 50%;

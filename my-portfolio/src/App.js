@@ -5,6 +5,7 @@ import Loader from "./Loader/Loader";
 import Grid from "animated-grid-lines";
 import Landingpage from "./pages/Landingpage";
 import RollingNavbar from "./components/Navbar";
+import ScreenshotWatermark from "./components/ScreenshotWatermark";
 
 const App = () => {
   
@@ -12,6 +13,7 @@ const App = () => {
     <div>
       {/* <RollingNavbar/> */}
       <Landingpage/>
+      <ScreenshotWatermark portfolioUrl="https://isha-nanda-portfolio-avqx.onrender.com/" />
     </div>
   );
 };

@@ -1,0 +1,156 @@
+/* ScreenshotWatermark.css */
+
+/* Styles for the overlay that appears when screenshot is detected */
+.screenshot-overlay {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    z-index: 10000;
+    animation: slideIn 0.3s ease-out;
+    max-width: 350px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  .overlay-content {
+    padding: 20px;
+  }
+  
+  .overlay-content h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .overlay-content p {
+    margin: 0 0 15px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .portfolio-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4361ee;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    border: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .portfolio-button:hover {
+    background-color: #3a56d4;
+  }
+  
+  .close-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: transparent;
+    color: #555;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .close-button:hover {
+    background-color: #f5f5f5;
+  }
+  
+  /* Watermark styles - these are invisible until screenshot */
+  .screenshot-watermark {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 9999;
+    transform: rotate(-30deg);
+  }
+  
+  .watermark-content {
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 4px;
+    font-size: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .watermark-content span {
+    display: block;
+    margin-bottom: 2px;
+  }
+  
+  .watermark-content a {
+    color: #4361ee;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  /* Global CSS to apply to the body when protection is active */
+  :root {
+    --screenshot-protection-color: rgba(67, 97, 238, 0.7);
+  }
+  
+  body.screenshot-protected::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      var(--screenshot-protection-color) 10px,
+      var(--screenshot-protection-color) 12px
+    );
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 9998;
+  }
+  
+  /* Screenshot media query hack - when screenshots are taken,
+     some browsers convert the page to a "print" media context */
+  @media print {
+    .screenshot-watermark {
+      opacity: 1 !important;
+      display: block !important;
+    }
+    
+    body::after {
+      content: "Visit my portfolio: your-portfolio-url.com";
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      font-size: 14px;
+      background: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      z-index: 10000;
+    }
+  }

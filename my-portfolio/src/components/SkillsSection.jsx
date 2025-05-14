@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 // import CircuitBoardBackground from './createBoard';
 import PortfolioSkillsSection from './skilly';
 import SubmarineAnimation from './submarine';
-import AnimatedPattern from './Animated';
+// import AnimatedPattern from './Animated';
 
 const ScrollingSkills = () => {
   const [isPaused, setIsPaused] = useState(false);
@@ -60,16 +60,12 @@ const ScrollingSkills = () => {
 
   return (
     <section ref={sectionRef} className="skills-section" id="skills">
-      <div className="background-wrapper">
-        <AnimatedPattern />
-        
-        <div className="glow-overlay"></div>
-      </div>
+    
       
       <div className="skills-container">
         <h2 className={`section-title ${visible ? 'visible' : ''}`}>
-          <div className="tech-text">SKILLS</div>
           <SubmarineAnimation/>
+          <div className="tech-text">SKILLS</div>
         </h2>
         <PortfolioSkillsSection/>
       </div>
@@ -99,12 +95,12 @@ const ScrollingSkills = () => {
         .skills-section {
           position: relative;
           width: 100%;
-          padding:60px 0;
+          padding:0px 0;
           display: flex;
           align-items: center;
           justify-content: center;
-          /* overflow: hidden; */
-          background-color: #0A0A1A;
+          background:#898f9042
+         
         }
         
         .background-wrapper {
@@ -122,7 +118,7 @@ const ScrollingSkills = () => {
           left: 0;
           width: 100%;
           height: 100%;
-          background: radial-gradient(circle at center, rgba(123, 104, 238, 0.2) 0%, rgba(10, 10, 26, 0) 70%);
+          /* background: radial-gradient(circle at center, rgba(123, 104, 238, 0.2) 0%, rgba(10, 10, 26, 0) 70%); */
           animation: glow 8s infinite ease-in-out;
           z-index: 1;
         }
@@ -130,22 +126,24 @@ const ScrollingSkills = () => {
         .skills-container {
           position: relative;
           z-index: 10;
-          width: 90%%;
+          width: 90%;
           /* max-width: 1200px; */
-          padding: 0 32px;
+          padding: 0 12px;
           margin: 0 auto;
           display: flex;
           flex-direction: column;
           align-items: center;
-          background-color:#2c292956;
           
+          border-radius: 12px; /* Added border radius for better appearance */
+          padding: 30px; /* Added padding for better spacing */
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Added subtle shadow */
         }
         
         .section-title {
           color: white;
           font-size: 48px;
           text-align: center;
-          margin-bottom: 64px;
+          margin-bottom: 4px;
           opacity: 0;
           transform: translateY(30px);
           transition: opacity 0.5s ease, transform 0.5s ease;
@@ -195,7 +193,7 @@ const ScrollingSkills = () => {
           width: 140px;
           height: 140px;
           margin: 0 20px;
-          background: rgba(10, 10, 30, 0.915);
+          /* background: rgba(10, 10, 30, 0.915); */
           border-radius: 12px;
           display: flex;
           flex-direction: column;

@@ -2,13 +2,15 @@ import React, { useState, useRef } from 'react';
 import { CardContainer, CardBody, CardItem } from '../components/CardContainer';
 import { X, Play, Pause, ExternalLink, ArrowUpRight } from 'lucide-react';
 import '../styles/Projects.css';
+import atlas from '../images/image.png'
+import fashion from '../images/image2.png'
 
 const projectsData = [
   {
     id: 1,
     title: "ATLAS GAME",
     description: "A full-stack e-commerce solution with user authentication, product management, and payment processing",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1470&auto=format&fit=crop",
+    image: atlas,
     video: "https://player.vimeo.com/video/359281775",
     skills: ["React", "Node.js", "MongoDB", "Stripe"],
     demoLink: "https://example.com/demo1",
@@ -30,7 +32,7 @@ const projectsData = [
     id: 3,
     title: "FashionEngage",
     description: "A collaborative task management application with real-time updates and data visualization",
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1472&auto=format&fit=crop",
+    image: fashion,
     video: "https://player.vimeo.com/video/466188871",
     skills: ["React", "Firebase", "Chart.js", "Material UI"],
     demoLink: "https://example.com/demo3",
@@ -179,7 +181,7 @@ const ProjectsSection = () => {
                       src={project.image}
                       alt={project.title}
                       style={{
-                        width: '100%',
+                        width: '50%',
                         height: '100%',
                         objectFit: 'cover',
                       }}
