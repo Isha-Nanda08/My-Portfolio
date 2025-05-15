@@ -13,11 +13,12 @@
     align-items: center;
     justify-content: center;
     color: #fff;
-    font: 600 100px Montserrat;
+    font-size:  100px ;
     text-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     text-transform: uppercase;
     position: relative;
     z-index: 20;
+    font-weight: 500;
   }
   
   .char {
@@ -64,7 +65,7 @@
   }
   
   .icon {
-    font-size: 18px;
+    font-size: 15px;
   }
   
   /* Floating circles */
@@ -128,33 +129,33 @@
   
   /* Increased orbit radius from 180px to 350px for more distance */
   @keyframes float1 {
-    0% { transform: translate(calc(-50% + 350px), calc(-50% + 0px)); }
-    25% { transform: translate(calc(-50% + 0px), calc(-50% + 350px)); }
-    50% { transform: translate(calc(-50% - 350px), calc(-50% + 0px)); }
-    75% { transform: translate(calc(-50% + 0px), calc(-50% - 350px)); }
-    100% { transform: translate(calc(-50% + 350px), calc(-50% + 0px)); }
+    0% { transform: translate(calc(-50% + 300px), calc(-50% + 0px)); }
+    25% { transform: translate(calc(-50% + 0px), calc(-50% + 300px)); }
+    50% { transform: translate(calc(-50% - 300px), calc(-50% + 0px)); }
+    75% { transform: translate(calc(-50% + 0px), calc(-50% - 300px)); }
+    100% { transform: translate(calc(-50% + 300px), calc(-50% + 0px)); }
   }
   
   @keyframes float2 {
-    0% { transform: translate(calc(-50% + 0px), calc(-50% + 350px)); }
-    25% { transform: translate(calc(-50% - 350px), calc(-50% + 0px)); }
-    50% { transform: translate(calc(-50% + 0px), calc(-50% - 350px)); }
-    75% { transform: translate(calc(-50% + 350px), calc(-50% + 0px)); }
-    100% { transform: translate(calc(-50% + 0px), calc(-50% + 350px)); }
+    0% { transform: translate(calc(-50% + 0px), calc(-50% + 300px)); }
+    25% { transform: translate(calc(-50% - 300px), calc(-50% + 0px)); }
+    50% { transform: translate(calc(-50% + 0px), calc(-50% - 300px)); }
+    75% { transform: translate(calc(-50% + 300px), calc(-50% + 0px)); }
+    100% { transform: translate(calc(-50% + 0px), calc(-50% + 300px)); }
   }
   
   @keyframes float3 {
-    0% { transform: translate(calc(-50% - 350px), calc(-50% + 0px)); }
-    25% { transform: translate(calc(-50% + 0px), calc(-50% - 350px)); }
-    50% { transform: translate(calc(-50% + 350px), calc(-50% + 0px)); }
-    75% { transform: translate(calc(-50% + 0px), calc(-50% + 350px)); }
-    100% { transform: translate(calc(-50% - 350px), calc(-50% + 0px)); }
+    0% { transform: translate(calc(-50% - 300px), calc(-50% + 0px)); }
+    25% { transform: translate(calc(-50% + 0px), calc(-50% - 300px)); }
+    50% { transform: translate(calc(-50% + 300px), calc(-50% + 0px)); }
+    75% { transform: translate(calc(-50% + 0px), calc(-50% + 300px)); }
+    100% { transform: translate(calc(-50% - 300px), calc(-50% + 0px)); }
   }
   
   @keyframes float4 {
-    0% { transform: translate(calc(-50% + 0px), calc(-50% - 350px)); }
-    25% { transform: translate(calc(-50% + 350px), calc(-50% + 0px)); }
-    50% { transform: translate(calc(-50% + 0px), calc(-50% + 350px)); }
-    75% { transform: translate(calc(-50% - 350px), calc(-50% + 0px)); }
-    100% { transform: translate(calc(-50% + 0px), calc(-50% - 350px)); }
+    0% { transform: translate(calc(-50% + 0px), calc(-50% - 300px)); }
+    25% { transform: translate(calc(-50% + 300px), calc(-50% + 0px)); }
+    50% { transform: translate(calc(-50% + 0px), calc(-50% + 300px)); }
+    75% { transform: translate(calc(-50% - 300px), calc(-50% + 0px)); }
+    100% { transform: translate(calc(-50% + 0px), calc(-50% - 300px)); }
   }

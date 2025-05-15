@@ -148,7 +148,7 @@
 .intro-text {
   position: absolute;
   top: 15%;
-  right: 65px;
+  right: 3%;
   text-align: right;
   max-width: 550px;
   z-index: 10;
@@ -156,15 +156,15 @@
 }
 
 .intro-title {
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: 30px;
+  line-height:30px;
   font-weight: 700;
   margin-bottom: 8px;
 }
 
 .intro-subtitle {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 25px;
+  line-height: 20px;
   margin-bottom: 24px;
 }
 .name{

@@ -6,39 +6,35 @@ const GlobalCursor = () => {
   const [isVisible, setIsVisible] = useState(false);
   
   useEffect(() => {
-    // Show cursor when component mounts (with slight delay to ensure DOM is ready)
+ 
     const showTimer = setTimeout(() => setIsVisible(true), 100);
     
-    // Track cursor position
+    
     const handleMouseMove = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
     
-    // Track when mouse leaves/enters the window
+   
     const handleMouseEnter = () => setIsVisible(true);
     const handleMouseLeave = () => setIsVisible(false);
     
-    // Add all event listeners
     document.addEventListener('mousemove', handleMouseMove);
     document.addEventListener('mouseenter', handleMouseEnter);
     document.addEventListener('mouseleave', handleMouseLeave);
     
-    // Add hover listeners to interactive elements
+  
     const addHoverListeners = () => {
-      // Find all interactive elements
+  
       const interactiveElements = document.querySelectorAll('a, button, input, select, textarea, [role="button"], .interactive');
-      
-      // Add hoverable class to all interactive elements
+     
       interactiveElements.forEach(el => {
         if (!el.classList.contains('hoverable')) {
           el.classList.add('hoverable');
         }
       });
-      
-      // Set up hover listeners
+    
       const hoverables = document.querySelectorAll('.hoverable');
-      
-      // Add event listeners
+     
       const handleMouseEnterHoverable = () => setIsHovering(true);
       const handleMouseLeaveHoverable = () => setIsHovering(false);
       
@@ -46,8 +42,7 @@ const GlobalCursor = () => {
         el.addEventListener('mouseenter', handleMouseEnterHoverable);
         el.addEventListener('mouseleave', handleMouseLeaveHoverable);
       });
-      
-      // Return cleanup function
+    
       return () => {
         hoverables.forEach(el => {
           el.removeEventListener('mouseenter', handleMouseEnterHoverable);
@@ -55,11 +50,10 @@ const GlobalCursor = () => {
         });
       };
     };
-    
-    // Add hover listeners with a slight delay to ensure DOM is fully loaded
+   
     const hoverListenersTimer = setTimeout(addHoverListeners, 500);
     
-    // Clean up all event listeners when component unmounts
+ 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mouseenter', handleMouseEnter);
@@ -71,7 +65,7 @@ const GlobalCursor = () => {
   
   return (
     <>
-      {/* Custom cursor elements */}
+     
       <div 
         id="global-cursor-container"
         style={{
@@ -85,7 +79,7 @@ const GlobalCursor = () => {
           visibility: isVisible ? 'visible' : 'hidden',
         }}
       >
-        {/* Outer circle - grows on hover */}
+       
         <div
           style={{
             position: 'absolute',
@@ -103,7 +97,7 @@ const GlobalCursor = () => {
           }}
         />
         
-        {/* Inner dot - always stays small */}
+       
         <div
           style={{
             position: 'absolute',
@@ -120,7 +114,7 @@ const GlobalCursor = () => {
         />
       </div>
       
-      {/* Global styles to hide default cursor */}
+   
       <style jsx global>{`
         html, body, * {
           cursor: none !important;

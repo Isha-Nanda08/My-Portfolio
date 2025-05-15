@@ -33,14 +33,14 @@ const GridBackground = () => {
   const zoomIn = () => {
     const newZoom = Math.min(zoom + 0.1, 2.5);
     setZoom(newZoom);
-    console.log('Zooming in:', newZoom);
+    // console.log('Zooming in:', newZoom);
     setControlsVisible(true);
   };
   
   const zoomOut = () => {
     const newZoom = Math.max(zoom - 0.1, 0.5);
     setZoom(newZoom);
-    console.log('Zooming out:', newZoom);
+    // console.log('Zooming out:', newZoom);
     setControlsVisible(true);
   };
   
