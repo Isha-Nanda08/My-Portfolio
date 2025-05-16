@@ -8,16 +8,16 @@ export default function Profile() {
     <div className="concept-five">
       {/* Floating Circle Links */}
       <div className="floating-circles">
-        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="floating-circle" id="circle1">
+        <a href="https://www.linkedin.com/in/isha-nanda-a3a531257/" target="_blank" rel="noopener noreferrer" className="floating-circle" id="circle1">
           <span>Linkedin</span>
         </a>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="floating-circle" id="circle2">
+        <a href="https://github.com/Isha-Nanda08" target="_blank" rel="noopener noreferrer" className="floating-circle" id="circle2">
           <span>Github</span>
         </a>
-        <a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer" className="floating-circle" id="circle3">
+        <a href="https://leetcode.com/u/Isha__nanda/" target="_blank" rel="noopener noreferrer" className="floating-circle" id="circle3">
           <span>Leetcode</span>
         </a>
-        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="floating-circle" id="circle4">
+        <a href="https://x.com/IshaNanda08?t=7vMvpMNtFtkSAJ7UwtzvMA&s=08" target="_blank" rel="noopener noreferrer" className="floating-circle" id="circle4">
           <span>𝕏</span>
         </a>
       </div>
@@ -33,16 +33,16 @@ export default function Profile() {
       
       {/* Original Social Links */}
       <div className="social-links-profile">
-        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="social-link">
+        <a href="https://x.com/IshaNanda08?t=7vMvpMNtFtkSAJ7UwtzvMA&s=08" target="_blank" rel="noopener noreferrer" className="social-link">
           <span className="icon">𝕏</span>
         </a>
-        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="social-link">
+        <a href="https://github.com/Isha-Nanda08" target="_blank" rel="noopener noreferrer" className="social-link">
           <span className="icon">GH</span>
         </a>
-        <a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer" className="social-link">
+        <a href="https://leetcode.com/u/Isha__nanda/" target="_blank" rel="noopener noreferrer" className="social-link">
           <span className="icon">LC</span>
         </a>
-        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="social-link">
+        <a href="https://www.linkedin.com/in/isha-nanda-a3a531257/" target="_blank" rel="noopener noreferrer" className="social-link">
           <span className="icon">LI</span>
         </a>
       </div>

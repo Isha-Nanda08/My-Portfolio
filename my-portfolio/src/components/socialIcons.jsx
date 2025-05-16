@@ -12,18 +12,18 @@ import {
 } from "react-icons/fa";
 
 const socialData = [
-  { name: "twitter", icon: <FaTwitter />, bgColor: "#50a8ee", backColor: "#2e80c1" },
+  { name: "twitter", icon: <FaTwitter />, bgColor: "#50a8ee", backColor: "#2e80c1" ,href:""},
 //   { name: "facebook", icon: <FaFacebookF />, bgColor: "#4662a0", backColor: "#203562" },
   {
     name: "instagram",
     icon: <FaInstagram />,
     bgColor:
       "radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%)",
-    backColor: "#285aeb",
+    backColor: "#285aeb", href:""
   },
-  { name: "github", icon: <FaGithub />, bgColor: "#2e3034", backColor: "#23252a" },
-  { name: "google", icon: <FaGooglePlusG />, bgColor: "#d93b2b", backColor: "#c41e0f" },
-  { name: "linkedin", icon: <FaLinkedin />, bgColor: "#007ebb", backColor: "#065a83" },
+  { name: "github", icon: <FaGithub />, bgColor: "#2e3034", backColor: "#23252a" ,href:""},
+  { name: "google", icon: <FaGooglePlusG />, bgColor: "#d93b2b", backColor: "#c41e0f",href:"" },
+  { name: "linkedin", icon: <FaLinkedin />, bgColor: "#007ebb", backColor: "#065a83",href:"" },
 //   { name: "reddit", icon: <FaRedditAlien />, bgColor: "#bf2608", backColor: "#f03612" },
 ];
 

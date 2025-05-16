@@ -627,3 +627,80 @@
     padding: 3rem;
   }
 }
+/* Add these styles to your AboutSection.css file */
+
+/* Left side arrow hint styles */
+.left-arrow-hint {
+  position: absolute;
+  left: -450px;
+  top: 70px;
+  display: flex;
+  align-items: center;
+  opacity: 0.9;
+  animation: pulse 2s infinite;
+  transition: opacity 0.3s ease;
+}
+
+.arrow-line {
+  width: 100px;
+  height: 7px;
+  background: #10acd3;
+  position: relative;
+}
+
+.arrow-head {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+  border-left: 10px solid #10acd3;
+  margin-left: -1px;
+}
+
+.hint-text {
+  margin-left: 8px;
+  font-size: 24px;
+  color: #10acd3;
+  font-family: 'Courier New', monospace;
+  white-space: nowrap;
+  text-shadow: 0 0 5px rgba(16, 172, 211, 0.5);
+  font-weight: 900;
+}
+
+/* Pulse animation for the arrow hint */
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+  100% {
+    opacity: 0.7;
+    transform: translateX(0);
+  }
+}
+
+/* No need for this rule anymore since we're conditionally rendering the hint */
+/* .svg-container.active .left-arrow-hint {
+  opacity: 0;
+  pointer-events: none;
+} */
+
+/* Make the cube more responsive to hover */
+.svg-container {
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.svg-container:hover {
+  transform: scale(1.05);
+}
+
+/* Remove the old click hint if it exists in your CSS */
+.click-hint {
+  display: none;
+}

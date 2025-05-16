@@ -49,9 +49,18 @@ I'm a passionate developer focused on creating beautiful, functional, and user-c
       
       {/* SVG animation that serves as a clickable button */}
       <div 
-        className={`svg-container ${isContentVisible ? 'active' : ''}`}
+        className={`svg-container ${isContentVisible || isDecoding ? 'active' : ''}`}
         onClick={toggleContent}
       >
+          {/* Arrow hint pointing to the cube instead of text - hidden during decoding or when content is visible */}
+          {!isDecoding && !isContentVisible && (
+            <div className="left-arrow-hint">
+              <div className="arrow-line"></div>
+              <div className="arrow-head"></div>
+              <div className="hint-text">Click to decode LaTeX</div>
+            </div>
+          )}
+
         <svg xmlns="http://www.w3.org/2000/svg" height="200" width="200">
           <g style={{ order: '-1' }}>
             <polygon
@@ -189,7 +198,7 @@ I'm a passionate developer focused on creating beautiful, functional, and user-c
                 <h2 className="latex-subheading">Achievements And Positions</h2>
                 <pre>{latexAchievements}</pre>
               </div>
-              <div className="click-hint">Click the cube to decode LaTeX</div>
+              
             </>
           ) : (
             <div className={`decoding-container ${decodingComplete ? "complete" : ""}`}>

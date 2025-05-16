@@ -2,18 +2,21 @@ import React, { useState, useRef } from 'react';
 import { CardContainer, CardBody, CardItem, CardLeftSide, CardRightSide } from '../components/CardContainer';
 import { X, Play, Pause, ExternalLink, ArrowUpRight } from 'lucide-react';
 import '../styles/Projects.css';
-
+import Atlas from "../images/image.png";
+import fashion from "../images/image2.png";
+import genie from "../images/image3.png";
+import career from "../images/image4.png"
 // Sample project data - would come from your actual data source
 const projectsData = [
   {
     id: 1,
     title: "ATLAS GAME",
-    description: `A full-stack e-commerce solution with user authentication, product management, and payment processing. Features include real-time inventory tracking, advanced search capabilities, and responsive design across all devices.
+    description: ` 
                   Developed a scalable multiplayer game with Node.js and Socket.io, supporting 300+ rooms and 100+ players per
                   room with 11 API endpoints
  ◦                Designed RESTful API using Express.js and PostgreSQL for managing and validating 5,000+ location data entries
                   `,
-    image: "/api/placeholder/500/300",
+    image: Atlas,
     video: "https://player.vimeo.com/video/359281775",
     skills: ["React", "Node.js", "postgresql", "WebSockets","Express.js"],
     demoLink: "https://atlas-game.vercel.app/",
@@ -24,7 +27,7 @@ const projectsData = [
     id: 2,
     title: "TalkGenie",
     description: "A responsive portfolio website with dynamic content and 3D animations. The interactive UI showcases work in a visually engaging way, with smooth transitions and custom animations that enhance user experience.",
-    image: "/api/placeholder/500/300",
+    image: genie,
     video: "https://player.vimeo.com/video/225434434",
     skills: ["React", "Node.js", "CSS3", "Express.js","Gemini API"],
     demoLink: "https://talkgenie.vercel.app/",
@@ -36,23 +39,23 @@ const projectsData = [
     title: "FashionEngage",
     description: `Engineered an interactive e-commerce platform with Three.js for real-time 3D model rendering
  ◦ Implemented 360-degree product view functionality and AR capabilities using ZapWorks API`,
-    image: "/api/placeholder/500/300",
+    image: fashion,
     video: "https://player.vimeo.com/video/466188871",
-    skills: ["React", "MondoDB", "Express.js", "Node.js","ZapWorks API","3JS","Tailwind CSS"],
-    demoLink: "https://example.com/demo3",
-    codeLink: "https://github.com/example/project3",
-    demoEmbed: "https://example.com/demo3"
+    skills: ["React", "MondoDB", "Express.js", "Node.js","ZapWorks API","3JS","Tailwind CSS","Blendor"],
+    demoLink: "https://fashion-engage.vercel.app/",
+    codeLink: "https://github.com/Isha-Nanda08/fashionEngage",
+    demoEmbed: "https://fashion-engage.vercel.app/"
   },
   {
     id: 4,
     title: "CarrerConnect",
     description: "A digital workspace for creatives that streamlines the design process from concept to delivery. Features include template libraries, collaborative editing, and integrated feedback tools for team communication.",
-    image: "/api/placeholder/500/300",
+    image: career,
     video: "https://player.vimeo.com/video/225434434",
     skills: ["React", "GraphQL", "AWS", "Tailwind"],
-    demoLink: "https://example.com/demo4",
-    codeLink: "https://github.com/example/project4",
-    demoEmbed: "https://example.com/demo4"
+    demoLink: "https://carrerconnect-two.vercel.app/",
+    codeLink: "https://github.com/Isha-Nanda08/Minor",
+    demoEmbed: "https://carrerconnect-two.vercel.app/"
   }
 ];
 
