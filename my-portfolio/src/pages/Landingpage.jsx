@@ -80,15 +80,26 @@ const Landingpage = () => {
               alignItems: "left",
             }}
           >
-            <div style={{ width: "200vh" }}>
+            <div style={{ width: "200vh" }}  id="home">
               <MondrianGrid />
             </div>
-            <AboutSection />
-            <ProjectsSection />
-            <SkillsExplosion />
-            <Profile/>
-            <VoltageButton/>
-            <footer style={{ zIndex: 1000 }}>
+            <div id="about">
+              <AboutSection/>
+            </div>
+
+            <div id="projects">
+              <ProjectsSection />
+            </div>
+
+            <div id="skills">
+              <SkillsExplosion />
+            </div>
+
+            <div id="profiles">
+              <Profile />
+            </div>
+
+            <footer id="contact" style={{ zIndex: 1000 }}>
               <Contact />
             </footer>
           </div>

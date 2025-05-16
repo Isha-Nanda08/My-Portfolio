@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 const RollingNavbar = () => {
   const [animationStarted, setAnimationStarted] = useState(false);
-  const navItems = ['About', 'Projects', 'Skills','Education','Profiles', 'Contact'];
+  const navItems = ['About', 'Projects', 'Skills','Profiles', 'Contact'];
 
   useEffect(() => {
     // Start animation after component mounts
@@ -17,7 +17,8 @@ const RollingNavbar = () => {
         {/* Logo container */}
         <div className="logo-container">
           <div className={`logo ${animationStarted ? 'rolling-animation' : ''}`}>
-            <span>IN.</span>
+            <a href={`#home`}> <span>IN.</span></a>
+            
           </div>
         </div>
 
@@ -89,6 +90,8 @@ const RollingNavbar = () => {
         .logo span {
           font-weight: bold;
           font-size: 24px;
+          color:#fff;
+        
         }
         
         /* Navigation */
