@@ -1,54 +1,58 @@
 import React, { useState, useRef } from 'react';
-import { CardContainer, CardBody, CardItem } from '../components/CardContainer';
+import { CardContainer, CardBody, CardItem, CardLeftSide, CardRightSide } from '../components/CardContainer';
 import { X, Play, Pause, ExternalLink, ArrowUpRight } from 'lucide-react';
 import '../styles/Projects.css';
-import atlas from '../images/image.png'
-import fashion from '../images/image2.png'
 
+// Sample project data - would come from your actual data source
 const projectsData = [
   {
     id: 1,
     title: "ATLAS GAME",
-    description: "A full-stack e-commerce solution with user authentication, product management, and payment processing",
-    image: atlas,
+    description: `A full-stack e-commerce solution with user authentication, product management, and payment processing. Features include real-time inventory tracking, advanced search capabilities, and responsive design across all devices.
+                  Developed a scalable multiplayer game with Node.js and Socket.io, supporting 300+ rooms and 100+ players per
+                  room with 11 API endpoints
+ ◦                Designed RESTful API using Express.js and PostgreSQL for managing and validating 5,000+ location data entries
+                  `,
+    image: "/api/placeholder/500/300",
     video: "https://player.vimeo.com/video/359281775",
-    skills: ["React", "Node.js", "MongoDB", "Stripe"],
-    demoLink: "https://example.com/demo1",
-    codeLink: "https://github.com/example/project1",
-    demoEmbed: "https://example.com/demo1"
+    skills: ["React", "Node.js", "postgresql", "WebSockets","Express.js"],
+    demoLink: "https://atlas-game.vercel.app/",
+    codeLink: "https://github.com/Isha-Nanda08/ATLAS_GAME",
+    demoEmbed: "https://atlas-game.vercel.app/"
   },
   {
     id: 2,
     title: "TalkGenie",
-    description: "A responsive portfolio website with dynamic content and 3D animations",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1415&auto=format&fit=crop",
+    description: "A responsive portfolio website with dynamic content and 3D animations. The interactive UI showcases work in a visually engaging way, with smooth transitions and custom animations that enhance user experience.",
+    image: "/api/placeholder/500/300",
     video: "https://player.vimeo.com/video/225434434",
-    skills: ["React", "Three.js", "CSS3", "GSAP"],
-    demoLink: "https://example.com/demo2",
-    codeLink: "https://github.com/example/project2",
-    demoEmbed: "https://example.com/demo2"
+    skills: ["React", "Node.js", "CSS3", "Express.js","Gemini API"],
+    demoLink: "https://talkgenie.vercel.app/",
+    codeLink: "https://github.com/Isha-Nanda08/TalkGenie",
+    demoEmbed: "https://talkgenie.vercel.app/"
   },
   {
     id: 3,
     title: "FashionEngage",
-    description: "A collaborative task management application with real-time updates and data visualization",
-    image: fashion,
+    description: `Engineered an interactive e-commerce platform with Three.js for real-time 3D model rendering
+ ◦ Implemented 360-degree product view functionality and AR capabilities using ZapWorks API`,
+    image: "/api/placeholder/500/300",
     video: "https://player.vimeo.com/video/466188871",
-    skills: ["React", "Firebase", "Chart.js", "Material UI"],
+    skills: ["React", "MondoDB", "Express.js", "Node.js","ZapWorks API","3JS","Tailwind CSS"],
     demoLink: "https://example.com/demo3",
     codeLink: "https://github.com/example/project3",
     demoEmbed: "https://example.com/demo3"
   },
   {
     id: 4,
-    title: "TalkGenie",
-    description: "A responsive portfolio website with dynamic content and 3D animations",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1415&auto=format&fit=crop",
+    title: "CarrerConnect",
+    description: "A digital workspace for creatives that streamlines the design process from concept to delivery. Features include template libraries, collaborative editing, and integrated feedback tools for team communication.",
+    image: "/api/placeholder/500/300",
     video: "https://player.vimeo.com/video/225434434",
-    skills: ["React", "Three.js", "CSS3", "GSAP"],
-    demoLink: "https://example.com/demo2",
-    codeLink: "https://github.com/example/project2",
-    demoEmbed: "https://example.com/demo2"
+    skills: ["React", "GraphQL", "AWS", "Tailwind"],
+    demoLink: "https://example.com/demo4",
+    codeLink: "https://github.com/example/project4",
+    demoEmbed: "https://example.com/demo4"
   }
 ];
 
@@ -92,11 +96,9 @@ const ProjectsSection = () => {
 
   return (
     <section className="projects-section" style={{
-      // backgroundColor: '#111',
       color: 'white',
       padding: '60px 20px',
       position: 'relative',
-      // backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.9) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 0, 0, 0.9) 1px, transparent 1px)',
       backgroundSize: '20px 20px',
       backgroundPosition: 'center center',
       minHeight: '100vh',
@@ -104,7 +106,7 @@ const ProjectsSection = () => {
       <div className="projects-header" style={{
         textAlign: 'center',
         position: 'relative',
-        marginBottom: '60px'
+        marginBottom: '80px'
       }}>
         <h2 className="projects-title" style={{
           fontSize: '4rem',
@@ -128,219 +130,255 @@ const ProjectsSection = () => {
         }}>Check out some of my recent work</p>
       </div>
       
-      <div className="projects-grid" style={{
-        display: 'fles',
-        // gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-        // gap: '30px',
-        maxWidth: '100%',
+      <div className="projects-container" style={{
+        maxWidth: '1200px',
         margin: '0 auto',
-        flexDirection:'column'
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '100px',
       }}>
-        {projectsData.map((project) => (
-          <CardContainer key={project.id} style={{
-            borderRadius: '12px',
-            overflow: 'hidden',
-            backgroundColor: 'rgba(20, 20, 20, 0.8)',
-            border: `1px solid ${project.id % 2 === 0 ? 'rgba(91, 208, 251, 0.3)' : 'rgba(181, 69, 229, 0.3)'}`,
-          }}>
-            <CardBody className="project-card" style={{
-              display: 'flex',
-              flexDirection: 'column',
-              height: '100%',
-              padding: '0',
+        {projectsData.map((project, index) => {
+          const isEven = index % 2 === 0;
+          const accentColor = isEven ? '#5BD0FB' : '#B545E5';
+          
+          return (
+            <CardContainer key={project.id} containerClassName="project-card-container" style={{
+              width: '100%',
+              marginBottom: '20px',
             }}>
-              <CardItem translateZ={100} className="project-media-container" style={{
-                width: '100%',
-                height: '200px',
+              <CardBody className="project-card" style={{
+                display: 'flex',
+                flexDirection: isEven ? 'row' : 'row-reverse',
+                backgroundColor: 'rgba(20, 20, 20, 0.8)',
+                borderRadius: '12px',
                 overflow: 'hidden',
-                position: 'relative',
+                border: `1px solid rgba(${isEven ? '91, 208, 251' : '181, 69, 229'}, 0.3)`,
+                height: '320px',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
               }}>
-                {/* Video thumbnail with fallback image */}
+                {/* Media Side */}
                 <div style={{
+                  flex: '1',
                   position: 'relative',
-                  width: '100%',
-                  height: '100%',
+                  overflow: 'hidden',
+                  borderRight: isEven ? `1px solid rgba(${isEven ? '91, 208, 251' : '181, 69, 229'}, 0.2)` : 'none',
+                  borderLeft: !isEven ? `1px solid rgba(${isEven ? '91, 208, 251' : '181, 69, 229'}, 0.2)` : 'none',
+                  backgroundColor: 'rgba(15, 15, 15, 0.9)',
                 }}>
-                  {playingVideos[project.id] ? (
-                    <video
-                      ref={(el) => setVideoRef(project.id, el)}
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
-                      loop
-                      muted
-                      playsInline
-                    >
-                      <source src={project.video} type="video/mp4" />
-                      Your browser does not support the video tag.
-                    </video>
-                  ) : (
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      style={{
-                        width: '50%',
-                        height: '100%',
-                        objectFit: 'cover',
-                      }}
-                    />
-                  )}
+                  <CardItem translateZ={100} className="project-media-container" style={{
+                    width: '100%',
+                    height: '100%',
+                    position: 'relative',
+                  }}>
+                    {/* Video thumbnail with fallback image */}
+                    <div style={{
+                      position: 'relative',
+                      width: '100%',
+                      height: '100%',
+                    }}>
+                      {playingVideos[project.id] ? (
+                        <video
+                          ref={(el) => setVideoRef(project.id, el)}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                          }}
+                          loop
+                          muted
+                          playsInline
+                        >
+                          <source src={project.video} type="video/mp4" />
+                          Your browser does not support the video tag.
+                        </video>
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          style={{
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover',
+                          }}
+                        />
+                      )}
+                      
+                      {/* Play/pause button overlay */}
+                      <button
+                        onClick={() => toggleVideo(project.id)}
+                        style={{
+                          position: 'absolute',
+                          bottom: '20px',
+                          right: '20px',
+                          backgroundColor: 'rgba(0, 0, 0, 0.6)',
+                          border: 'none',
+                          borderRadius: '50%',
+                          width: '40px',
+                          height: '40px',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          cursor: 'pointer',
+                          zIndex: 2,
+                          transition: 'transform 0.2s ease, background-color 0.2s ease',
+                        }}
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.transform = 'scale(1.1)';
+                          e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.transform = 'scale(1)';
+                          e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+                        }}
+                      >
+                        {playingVideos[project.id] ? (
+                          <Pause size={20} color="white" />
+                        ) : (
+                          <Play size={20} color="white" />
+                        )}
+                      </button>
+                      
+                      {/* Preview button */}
+                      <div 
+                        className="project-preview-icon" 
+                        onClick={() => openPreview(project.id)}
+                        style={{
+                          position: 'absolute',
+                          top: '20px',
+                          right: '20px',
+                          backgroundColor: accentColor,
+                          width: '44px',
+                          height: '44px',
+                          borderRadius: '50%',
+                          display: 'flex',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          cursor: 'pointer',
+                          boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
+                          zIndex: 3,
+                          transition: 'transform 0.3s ease',
+                        }}
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.transform = 'scale(1.1) rotate(5deg)';
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.transform = 'scale(1) rotate(0deg)';
+                        }}
+                      >
+                        <ArrowUpRight size={22} color="white" />
+                      </div>
+                    </div>
+                  </CardItem>
+                </div>
+                
+                {/* Content Side */}
+                <div style={{
+                  flex: '1.2',
+                  padding: '30px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'space-between',
+                }}>
+                  <div>
+                    <CardItem translateZ={50} className="project-title" style={{
+                      fontSize: '2rem',
+                      marginBottom: '12px',
+                      color: accentColor,
+                      fontWeight: '600',
+                      letterSpacing: '1px',
+                    }}>
+                      {project.title}
+                    </CardItem>
+                    
+                    <CardItem as="p" translateZ={60} className="project-description" style={{
+                      fontSize: '0.95rem',
+                      lineHeight: '1.6',
+                      color: '#ddd',
+                      marginBottom: '20px',
+                    }}>
+                      {project.description}
+                    </CardItem>
+                  </div>
                   
-                  {/* Play/pause button overlay */}
-                  <button
-                    onClick={() => toggleVideo(project.id)}
-                    style={{
-                      position: 'absolute',
-                      bottom: '10px',
-                      right: '10px',
-                      backgroundColor: 'rgba(0, 0, 0, 0.6)',
-                      border: 'none',
-                      borderRadius: '50%',
-                      width: '36px',
-                      height: '36px',
+                  <div>
+                    <CardItem translateZ={40} className="project-skills" style={{
                       display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      cursor: 'pointer',
-                      zIndex: 2,
-                    }}
-                  >
-                    {playingVideos[project.id] ? (
-                      <Pause size={18} color="white" />
-                    ) : (
-                      <Play size={18} color="white" />
-                    )}
-                  </button>
-                  
-                  {/* Arrow decoration coming out of the image */}
-                  <div 
-                    className="project-arrow" 
-                    onClick={() => openPreview(project.id)}
-                    style={{
-                      position: 'absolute',
-                      top: '10px',
-                      right: '10px',
-                      backgroundColor: project.id % 2 === 0 ? '#5BD0FB' : '#B545E5',
-                      width: '40px',
-                      height: '40px',
-                      borderRadius: '50%',
+                      flexWrap: 'wrap',
+                      gap: '8px',
+                      marginBottom: '25px',
+                    }}>
+                      {project.skills.map((skill, index) => (
+                        <span 
+                          key={index} 
+                          className="project-skill"
+                          style={{
+                            backgroundColor: `rgba(${isEven ? '91, 208, 251' : '181, 69, 229'}, 0.15)`,
+                            color: accentColor,
+                            padding: '5px 12px',
+                            borderRadius: '4px',
+                            fontSize: '0.8rem',
+                            fontWeight: '500',
+                          }}
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </CardItem>
+                    
+                    <div className="project-links" style={{
                       display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      cursor: 'pointer',
-                      boxShadow: '0 4px 8px rgba(0,0,0,0.3)',
-                      zIndex: 3,
-                      transition: 'transform 0.3s ease',
-                    }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.transform = 'scale(1.1)';
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.transform = 'scale(1)';
-                    }}
-                  >
-                    <ArrowUpRight size={22} color="white" />
+                      gap: '15px',
+                    }}>
+                      <CardItem
+                        translateZ={20}
+                        as="button"
+                        onClick={() => openPreview(project.id)}
+                        className="project-preview-button"
+                        style={{
+                          backgroundColor: accentColor,
+                          color: 'white',
+                          padding: '10px 18px',
+                          borderRadius: '6px',
+                          border: 'none',
+                          cursor: 'pointer',
+                          fontWeight: '500',
+                          fontSize: '0.9rem',
+                          transition: 'all 0.3s ease',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                        }}
+                      >
+                        Preview <ExternalLink size={14} />
+                      </CardItem>
+                      
+                      <CardItem
+                        translateZ={20}
+                        as="a"
+                        href={project.codeLink}
+                        target="_blank"
+                        className="project-button"
+                        style={{
+                          backgroundColor: 'transparent',
+                          color: accentColor,
+                          padding: '10px 18px',
+                          borderRadius: '6px',
+                          border: `1px solid ${accentColor}`,
+                          textDecoration: 'none',
+                          fontWeight: '500',
+                          fontSize: '0.9rem',
+                          transition: 'all 0.3s ease',
+                        }}
+                      >
+                        View Code
+                      </CardItem>
+                    </div>
                   </div>
                 </div>
-              </CardItem>
-              
-              <div style={{ padding: '20px' }}>
-                <CardItem translateZ={50} className="project-title" style={{
-                  fontSize: '1.8rem',
-                  marginBottom: '10px',
-                  color: project.id % 2 === 0 ? '#5BD0FB' : '#B545E5',
-                  fontWeight: '600',
-                }}>
-                  {project.title}
-                </CardItem>
-                
-                <CardItem as="p" translateZ={60} className="project-description" style={{
-                  fontSize: '0.95rem',
-                  lineHeight: '1.6',
-                  color: '#ddd',
-                  marginBottom: '20px',
-                }}>
-                  {project.description}
-                </CardItem>
-                
-                <CardItem translateZ={40} className="project-skills" style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  gap: '8px',
-                  marginBottom: '20px',
-                }}>
-                  {project.skills.map((skill, index) => (
-                    <span 
-                      key={index} 
-                      className="project-skill"
-                      style={{
-                        backgroundColor: project.id % 2 === 0 ? 'rgba(91, 208, 251, 0.15)' : 'rgba(181, 69, 229, 0.15)',
-                        color: project.id % 2 === 0 ? '#5BD0FB' : '#B545E5',
-                        padding: '4px 10px',
-                        borderRadius: '4px',
-                        fontSize: '0.8rem',
-                      }}
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </CardItem>
-                
-                <div className="project-links" style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  marginTop: 'auto',
-                }}>
-                  <CardItem
-                    translateZ={20}
-                    as="button"
-                    onClick={() => openPreview(project.id)}
-                    className="project-preview-button"
-                    style={{
-                      backgroundColor: project.id % 2 === 0 ? '#5BD0FB' : '#B545E5',
-                      color: 'white',
-                      padding: '8px 16px',
-                      borderRadius: '4px',
-                      border: 'none',
-                      cursor: 'pointer',
-                      fontWeight: '500',
-                      fontSize: '0.9rem',
-                      transition: 'all 0.3s ease',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                    }}
-                  >
-                    Preview <ExternalLink size={14} />
-                  </CardItem>
-                  
-                  <CardItem
-                    translateZ={20}
-                    as="a"
-                    href={project.codeLink}
-                    target="_blank"
-                    className="project-button"
-                    style={{
-                      backgroundColor: 'transparent',
-                      color: project.id % 2 === 0 ? '#5BD0FB' : '#B545E5',
-                      padding: '8px 16px',
-                      borderRadius: '4px',
-                      border: `1px solid ${project.id % 2 === 0 ? '#5BD0FB' : '#B545E5'}`,
-                      textDecoration: 'none',
-                      fontWeight: '500',
-                      fontSize: '0.9rem',
-                      transition: 'all 0.3s ease',
-                    }}
-                  >
-                    View Code
-                  </CardItem>
-                </div>
-              </div>
-            </CardBody>
-          </CardContainer>
-        ))}
+              </CardBody>
+            </CardContainer>
+          );
+        })}
       </div>
 
       {/* Preview Modal */}
@@ -431,7 +469,7 @@ const ProjectsSection = () => {
         </div>
       )}
 
-      {/* Decorative element similar to your homepage */}
+      {/* Decorative elements */}
       <div style={{
         position: 'absolute',
         top: '50%',
@@ -443,8 +481,20 @@ const ProjectsSection = () => {
         backgroundColor: '#5BD0FB',
         opacity: '0.7'
       }}></div>
+      
+      <div style={{
+        position: 'absolute',
+        top: '30%',
+        left: '20px',
+        transform: 'translateY(-50%)',
+        width: '15px',
+        height: '60px',
+        borderRadius: '20px',
+        backgroundColor: '#B545E5',
+        opacity: '0.7'
+      }}></div>
 
-      {/* Add this CSS to your Projects.css file */}
+      {/* CSS Animations */}
       <style>
         {`
           @keyframes modalFadeIn {
@@ -458,10 +508,21 @@ const ProjectsSection = () => {
             }
           }
           
-          /* Optional hover effects */
-          .CardContainer:hover {
-            transform: translateY(-5px);
-            transition: transform 0.3s ease;
+          .project-card-container {
+            transition: transform 0.5s ease;
+          }
+          
+          .project-card-container:hover {
+            transform: translateY(-10px);
+          }
+          
+          .card-container-inner {
+            transition: transform 0.6s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+          }
+          
+          .project-preview-button:hover, .project-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
           }
         `}
       </style>
