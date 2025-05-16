@@ -1,7 +1,7 @@
 // src/components/Assistant/Assistant.jsx (updated)
 import React, { useState, useRef, useEffect } from 'react';
-import useGeminiAPI from '../Hooks/useGeminiAPI';
-import './Assistant.css';
+import useGeminiAPI from './useGeminiAPI';
+import '../styles/Assistant.css';
 
 const Assistant = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ const Assistant = () => {
   const { generateResponse, isLoading, error } = useGeminiAPI();
   
   
-  const apiKey ="AIzaSyBdPBk4bQGdwcm0WAqjJMxh0TLfHLZamiQ";
+  const apiKey =process.env.REACT_APP_GEMINI_API_KEY;
  
 console.log("API Key available:", apiKey ? "Yes" : "No");
 

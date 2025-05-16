@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 import Landingpage from "./pages/Landingpage";
-import Assistant from "./Assistant/Assistant";
+import Assistant from "./components/Assistant";
+// import Assistant from "./Assistant/Assistant";
 
 
 const App = () => {

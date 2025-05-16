@@ -85,7 +85,7 @@ const GlobalCursor = () => {
             position: 'absolute',
             top: 0,
             left: 0,
-            transform: `translate(${position.x - 20}px, ${position.y - 20}px) scale(${isHovering ? 2.5 : 1})`,
+            transform: `translate(${position.x - 20}px, ${position.y - 20}px) scale(${isHovering ? 1.5 : 1})`,
             width: '40px',
             height: '40px',
             borderRadius: '50%',
