@@ -98,6 +98,7 @@ const Landingpage = () => {
             <div id="profiles">
               <Profile />
             </div>
+            <VoltageButton/>
 
             <footer id="contact" style={{ zIndex: 1000 }}>
               <Contact />
