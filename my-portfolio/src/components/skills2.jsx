@@ -14,15 +14,14 @@ import {
 export default function PortfolioSkillsSection() {
   // Define your skills with gradient colors that match the front page theme
   const skills = [
-    { name: "React", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <LogIn size={32} color="#61dafb" /> },
-    { name: "JavaScript", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <FileCode size={32} color="#f7df1e" /> },
-    { name: "CSS", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <Palette size={32} color="#61dafb" /> },
-    { name: "Node.js", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <Server size={32} color="#7a8e61" /> },
-    { name: "NextJs", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <FileCode2 size={32} color="#a69fa8" /> },
-    { name: "UI/UX", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <LayoutDashboard size={32} color="#ddd6de" /> },
-    { name: "MongoDb", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <Database size={32} color="#c6bcc8" /> },
-    { name: "TypeScript", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <FileType size={32} color="#fff" /> },
-    { name: "Git", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <GitBranch size={32} color="#F5F5F5" /> }
+      { name: "Langchain", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <FileCode size={32} color="#f7df1e" /> },
+      { name: "Tailwind CSS", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <Palette size={32} color="#61dafb" /> },
+      { name: "Express.js", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <Server size={32} color="#7a8e61" /> },
+      { name: "Socket.io", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <LogIn size={32} color="#61dafb" /> },
+      { name: "MaterialUI", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <Palette size={32} color="#61dafb" /> },
+      { name: "Framer Motion", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <LayoutDashboard size={32} color="#ddd6de" /> },
+      { name: "Firebase", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <LogIn size={32} color="#61dafb" /> },
+    
     // { name: "Git", gradient: "linear-gradient(135deg, #8c3dc1, #8c3dc1)", icon: <GitBranch size={32} color="#F5F5F5" /> }
   ];
 

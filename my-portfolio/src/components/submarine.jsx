@@ -75,7 +75,7 @@ export default function SubmarineAnimation() {
         
         .circle-wrapper {
           position: relative;
-          background: linear-gradient(#0a0a0a, #393d3e);
+          /* background: linear-gradient(#0a0a0a, #0b0b0b); */
           width: 300px;
           height: 300px;
           margin: px auto 0 auto;

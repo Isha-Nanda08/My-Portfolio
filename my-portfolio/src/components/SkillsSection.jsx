@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 // import CircuitBoardBackground from './createBoard';
 import PortfolioSkillsSection from './skilly';
 import SubmarineAnimation from './submarine';
+import Silly from './skills2'
 // import AnimatedPattern from './Animated';
 
 const ScrollingSkills = () => {
@@ -68,6 +69,7 @@ const ScrollingSkills = () => {
           <div className="tech-text">SKILLS</div>
         </h2>
         <PortfolioSkillsSection/>
+        <Silly/>
       </div>
       
       <style jsx>{`

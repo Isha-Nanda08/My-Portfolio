@@ -5,7 +5,7 @@ import WelcomeSVG from "./welcome";
 
 const MondrianGrid = () => {
   const circleTextRef = useRef(null);
-  const [resumeURL] = useState("/path-to-your-resume.pdf"); // Replace with your actual resume PDF path
+  const [resumeURL] = useState("https://drive.google.com/file/d/1CrSNqPBqo9EqFa7-m9g172UmPyAn7BJT/view"); // Replace with your actual resume PDF path
   
   useEffect(() => {
     const circleElement = circleTextRef.current;
