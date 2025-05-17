@@ -304,3 +304,75 @@
     transform: scale(0.95);
   }
 }
+
+/* Add this to your gridf.css file */
+
+/* Buttons container to hold both buttons */
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+/* Existing button styles for scroll button (if not already defined) */
+/* .scroll-button {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
+              -5px -5px 10px rgba(255, 255, 255, 0.5);
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-button:hover {
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1),
+              -3px -3px 6px rgba(255, 255, 255, 0.5);
+}
+
+.button-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: #1995ae;
+  border-radius: 50%;
+} */
+
+/* New Resume Button styling */
+.resume-button {
+  padding: 20px 35px;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #1995aee4, #1995ae);
+  color: white;
+  font-weight: 600;
+  border: none;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1),
+              -3px -3px 8px rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.resume-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.15),
+              -3px -3px 8px rgba(255, 255, 255, 0.1);
+  background: linear-gradient(145deg, #1995ae, #16839a);
+}
+
+.resume-button:active {
+  transform: translateY(0);
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1),
+              -2px -2px 5px rgba(255, 255, 255, 0.1);
+}

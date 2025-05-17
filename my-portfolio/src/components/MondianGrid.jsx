@@ -1,10 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "../styles/gridf.css";
 import TextReveal from "../components/TextReveal";
 import WelcomeSVG from "./welcome";
 
 const MondrianGrid = () => {
   const circleTextRef = useRef(null);
+  const [resumeURL] = useState("/path-to-your-resume.pdf"); // Replace with your actual resume PDF path
   
   useEffect(() => {
     const circleElement = circleTextRef.current;
@@ -44,7 +45,6 @@ const MondrianGrid = () => {
       document.removeEventListener('mousemove', onMouseMove);
       document.removeEventListener('mouseup', onMouseUp);
     };
-    
   }, []);
 
   // Function to handle scroll down when button is clicked
@@ -59,9 +59,14 @@ const MondrianGrid = () => {
     });
   };
 
+  // Function to open resume PDF
+  const openResume = () => {
+    window.open(resumeURL, '_blank');
+  };
+
   // Creating text for the spinning circle
   const text = "learn more · earn more · grow more · ";
-  
+
   return (
     <div className="grid-container">
       {/* Background Grid Lines */}
@@ -78,9 +83,9 @@ const MondrianGrid = () => {
       <div ref={circleTextRef} className="circle-text-container">
         <div className="circle-text">
           {text.split('').map((char, index) => (
-            <span 
-              key={index} 
-              style={{ 
+            <span
+              key={index}
+              style={{
                 '--i': index,
                 '--total': text.length
               }}
@@ -103,11 +108,18 @@ const MondrianGrid = () => {
           <h2 className="intro-subtitle">A <span className="mern">MERN</span> Stack Developer</h2>
         </TextReveal>
         
-        
-        
-        {/* Cylindrical Button */}
-        <div className="button-container">
+        {/* Buttons Container */}
+        <div className="buttons-container">
+          {/* Resume Button */}
           <button 
+            onClick={openResume}
+            className="resume-button"
+          >
+            Resume
+          </button>
+
+          {/* Cylindrical Button */}
+          <button
             onClick={handleScrollDown}
             className="scroll-button"
           >
