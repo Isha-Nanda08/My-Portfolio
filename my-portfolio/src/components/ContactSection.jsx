@@ -456,7 +456,7 @@ const ContactSection = () => {
         paddingTop: '20px',
         color: '#999'
       }}>
-        <p>© {new Date().getFullYear()} Isha Nanda | Made with ❤️</p>
+        <p>© {new Date().getFullYear()} Isha Nanda | Made with 💜</p>
       </div>
       
       {/* Decorative element similar to your home page */}
