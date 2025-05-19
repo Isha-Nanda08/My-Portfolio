@@ -105,7 +105,7 @@ const MondrianGrid = () => {
         </TextReveal>
         
         <TextReveal color="#1995ae92" duration={0.8} delay={0.4}>
-          <h2 className="intro-subtitle">A <span className="mern">MERN</span> Stack Developer</h2>
+          <h2 className="intro-subtitle">A <span className="mern">FULL</span> Stack Developer</h2>
         </TextReveal>
         
         {/* Buttons Container */}
