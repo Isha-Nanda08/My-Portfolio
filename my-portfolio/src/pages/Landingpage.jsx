@@ -1,4 +1,4 @@
-// Updated Landingpage.jsx with SiteTimer component
+
 import React, { useState, useEffect, useRef } from "react";
 import Contact from "../components/Contact";
 import useLocoScroll from "../Hooks/LocomotiveScroll";
@@ -12,7 +12,7 @@ import Loader from "../Loader/Loader";
 import Profile from "../components/Profiles";
 import VoltageButton from "../components/PlaySec";
 import GridBackground from "../components/Background";
-import SiteTimer from "../components/SetTimer"; // Import the timer component
+import SiteTimer from "../components/SetTimer"; 
 
 const Landingpage = () => {
   // State to manage loading status
@@ -27,12 +27,12 @@ const Landingpage = () => {
   // Handle initialization of scroll when loading completes
   useEffect(() => {
     if (!isLoading && !locomotiveInitialized.current) {
-      // Add any special initialization here that needs to happen after loading
+      
       locomotiveInitialized.current = true;
     }
   }, [isLoading]);
   
-  // Simulate loader duration and switch to content
+  
   useEffect(() => {
     const timeout = setTimeout(() => {
       setIsLoading(false);
@@ -41,7 +41,7 @@ const Landingpage = () => {
     return () => clearTimeout(timeout);
   }, []);
   
-  // Function to handle clicking the "Show Grid" button
+  
   const handleShowGrid = () => {
     setShowGridSection(true);
     if (gridSectionRef.current) {
